@@ -1,0 +1,60 @@
+01:16:51 **** Auto Build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make all 
+'Building file: ../src/RNA35b.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b.d" -MT"src/RNA35b.d" -o "src/RNA35b.o" "../src/RNA35b.c"
+../src/RNA35b.c: In function 'RNA35b':
+../src/RNA35b.c:265:8: warning: assuming signed overflow does not occur when assuming that (X + c) >= X is always true [-Wstrict-overflow]
+     if (ixstart < ix) {
+        ^
+'Finished building: ../src/RNA35b.c'
+' '
+'Building file: ../src/RNA35b_emxAPI.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_emxAPI.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_emxAPI.d" -MT"src/RNA35b_emxAPI.d" -o "src/RNA35b_emxAPI.o" "../src/RNA35b_emxAPI.c"
+'Finished building: ../src/RNA35b_emxAPI.c'
+' '
+'Building file: ../src/RNA35b_emxutil.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_emxutil.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_emxutil.d" -MT"src/RNA35b_emxutil.d" -o "src/RNA35b_emxutil.o" "../src/RNA35b_emxutil.c"
+'Finished building: ../src/RNA35b_emxutil.c'
+' '
+'Building file: ../src/RNA35b_initialize.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_initialize.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_initialize.d" -MT"src/RNA35b_initialize.d" -o "src/RNA35b_initialize.o" "../src/RNA35b_initialize.c"
+'Finished building: ../src/RNA35b_initialize.c'
+' '
+'Building file: ../src/RNA35b_terminate.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_terminate.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_terminate.d" -MT"src/RNA35b_terminate.d" -o "src/RNA35b_terminate.o" "../src/RNA35b_terminate.c"
+'Finished building: ../src/RNA35b_terminate.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/rtGetInf.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rtGetInf.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rtGetInf.d" -MT"src/rtGetInf.d" -o "src/rtGetInf.o" "../src/rtGetInf.c"
+'Finished building: ../src/rtGetInf.c'
+' '
+'Building file: ../src/rtGetNaN.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rtGetNaN.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rtGetNaN.d" -MT"src/rtGetNaN.d" -o "src/rtGetNaN.o" "../src/rtGetNaN.c"
+'Finished building: ../src/rtGetNaN.c'
+' '
+'Building file: ../src/rt_nonfinite.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rt_nonfinite.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rt_nonfinite.d" -MT"src/rt_nonfinite.d" -o "src/rt_nonfinite.o" "../src/rt_nonfinite.c"
+'Finished building: ../src/rt_nonfinite.c'
+' '
+'Building target: ANN_Heartbeat_Sorter_SW.elf'
+'Invoking: ARM gcc linker'
+arm-xilinx-eabi-gcc -L../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/lib -Wl,-T -Wl,../src/lscript.ld -o "ANN_Heartbeat_Sorter_SW.elf"  ./src/RNA35b.o ./src/RNA35b_emxAPI.o ./src/RNA35b_emxutil.o ./src/RNA35b_initialize.o ./src/RNA35b_terminate.o ./src/main.o ./src/rtGetInf.o ./src/rtGetNaN.o ./src/rt_nonfinite.o   -l-Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2015.4/gnu/arm/nt/bin/../lib/gcc/arm-xilinx-eabi/4.9.2/../../../../arm-xilinx-eabi/bin/ld.exe: cannot find -l-Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+collect2.exe: error: ld returned 1 exit status
+make: *** [ANN_Heartbeat_Sorter_SW.elf] Error 1
+
+01:16:54 Build Finished (took 2s.865ms)
+

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2015.4.2 (64-bit)
+# SW Build 1494164 on Fri Feb 26 04:18:56 MST 2016
+# IP Build 1491208 on Wed Feb 24 03:25:39 MST 2016
+# Start of session at: Mon Mar 07 01:15:17 2016
+# Process ID: 5672
+# Current directory: E:/Zynq/ANN_project/ANN_project.runs/synth_1
+# Command line: vivado.exe -log SW_design_wrapper.vds -mode batch -messageDb vivado.pb -notrace -source SW_design_wrapper.tcl
+# Log file: E:/Zynq/ANN_project/ANN_project.runs/synth_1/SW_design_wrapper.vds
+# Journal file: E:/Zynq/ANN_project/ANN_project.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source SW_design_wrapper.tcl -notrace

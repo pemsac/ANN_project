@@ -1,0 +1,301 @@
+01:15:29 **** Incremental Build of configuration Debug for project ANN_Heartbeat_Sorter_SW_bsp_xilffs_polled_example_1 ****
+make all 
+make: Nothing to be done for `all'.
+01:15:43 **** Clean-only build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make clean 
+rm -rf  ./src/RNA35b.o ./src/RNA35b_emxAPI.o ./src/RNA35b_emxutil.o ./src/RNA35b_initialize.o ./src/RNA35b_terminate.o ./src/rtGetInf.o ./src/rtGetNaN.o ./src/rt_nonfinite.o  ./main.o  ./src/RNA35b.d ./src/RNA35b_emxAPI.d ./src/RNA35b_emxutil.d ./src/RNA35b_initialize.d ./src/RNA35b_terminate.d ./src/rtGetInf.d ./src/rtGetNaN.d ./src/rt_nonfinite.d  ./main.d  ANN_Heartbeat_Sorter_SW.elf.size  ANN_Heartbeat_Sorter_SW.elf
+' '
+01:15:43 **** Auto Build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make all 
+'Building file: ../src/RNA35b.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b.d" -MT"src/RNA35b.d" -o "src/RNA35b.o" "../src/RNA35b.c"
+../src/RNA35b.c: In function 'RNA35b':
+../src/RNA35b.c:265:8: warning: assuming signed overflow does not occur when assuming that (X + c) >= X is always true [-Wstrict-overflow]
+     if (ixstart < ix) {
+        ^
+'Finished building: ../src/RNA35b.c'
+' '
+'Building file: ../src/RNA35b_emxAPI.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_emxAPI.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_emxAPI.d" -MT"src/RNA35b_emxAPI.d" -o "src/RNA35b_emxAPI.o" "../src/RNA35b_emxAPI.c"
+'Finished building: ../src/RNA35b_emxAPI.c'
+' '
+'Building file: ../src/RNA35b_emxutil.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_emxutil.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_emxutil.d" -MT"src/RNA35b_emxutil.d" -o "src/RNA35b_emxutil.o" "../src/RNA35b_emxutil.c"
+'Finished building: ../src/RNA35b_emxutil.c'
+' '
+'Building file: ../src/RNA35b_initialize.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_initialize.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_initialize.d" -MT"src/RNA35b_initialize.d" -o "src/RNA35b_initialize.o" "../src/RNA35b_initialize.c"
+'Finished building: ../src/RNA35b_initialize.c'
+' '
+'Building file: ../src/RNA35b_terminate.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_terminate.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_terminate.d" -MT"src/RNA35b_terminate.d" -o "src/RNA35b_terminate.o" "../src/RNA35b_terminate.c"
+'Finished building: ../src/RNA35b_terminate.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/rtGetInf.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rtGetInf.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rtGetInf.d" -MT"src/rtGetInf.d" -o "src/rtGetInf.o" "../src/rtGetInf.c"
+'Finished building: ../src/rtGetInf.c'
+' '
+'Building file: ../src/rtGetNaN.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rtGetNaN.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rtGetNaN.d" -MT"src/rtGetNaN.d" -o "src/rtGetNaN.o" "../src/rtGetNaN.c"
+'Finished building: ../src/rtGetNaN.c'
+' '
+'Building file: ../src/rt_nonfinite.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rt_nonfinite.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rt_nonfinite.d" -MT"src/rt_nonfinite.d" -o "src/rt_nonfinite.o" "../src/rt_nonfinite.c"
+'Finished building: ../src/rt_nonfinite.c'
+' '
+make: *** No rule to make target `main.o', needed by `ANN_Heartbeat_Sorter_SW.elf'.  Stop.
+01:16:03 **** Auto Build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make all 
+'Building file: ../src/RNA35b.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b.d" -MT"src/RNA35b.d" -o "src/RNA35b.o" "../src/RNA35b.c"
+../src/RNA35b.c: In function 'RNA35b':
+../src/RNA35b.c:265:8: warning: assuming signed overflow does not occur when assuming that (X + c) >= X is always true [-Wstrict-overflow]
+     if (ixstart < ix) {
+        ^
+'Finished building: ../src/RNA35b.c'
+' '
+'Building file: ../src/RNA35b_emxAPI.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_emxAPI.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_emxAPI.d" -MT"src/RNA35b_emxAPI.d" -o "src/RNA35b_emxAPI.o" "../src/RNA35b_emxAPI.c"
+'Finished building: ../src/RNA35b_emxAPI.c'
+' '
+'Building file: ../src/RNA35b_emxutil.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_emxutil.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_emxutil.d" -MT"src/RNA35b_emxutil.d" -o "src/RNA35b_emxutil.o" "../src/RNA35b_emxutil.c"
+'Finished building: ../src/RNA35b_emxutil.c'
+' '
+'Building file: ../src/RNA35b_initialize.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_initialize.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_initialize.d" -MT"src/RNA35b_initialize.d" -o "src/RNA35b_initialize.o" "../src/RNA35b_initialize.c"
+'Finished building: ../src/RNA35b_initialize.c'
+' '
+'Building file: ../src/RNA35b_terminate.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_terminate.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_terminate.d" -MT"src/RNA35b_terminate.d" -o "src/RNA35b_terminate.o" "../src/RNA35b_terminate.c"
+'Finished building: ../src/RNA35b_terminate.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/rtGetInf.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rtGetInf.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rtGetInf.d" -MT"src/rtGetInf.d" -o "src/rtGetInf.o" "../src/rtGetInf.c"
+'Finished building: ../src/rtGetInf.c'
+' '
+'Building file: ../src/rtGetNaN.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rtGetNaN.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rtGetNaN.d" -MT"src/rtGetNaN.d" -o "src/rtGetNaN.o" "../src/rtGetNaN.c"
+'Finished building: ../src/rtGetNaN.c'
+' '
+'Building file: ../src/rt_nonfinite.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rt_nonfinite.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rt_nonfinite.d" -MT"src/rt_nonfinite.d" -o "src/rt_nonfinite.o" "../src/rt_nonfinite.c"
+'Finished building: ../src/rt_nonfinite.c'
+' '
+'Building target: ANN_Heartbeat_Sorter_SW.elf'
+'Invoking: ARM gcc linker'
+arm-xilinx-eabi-gcc -L../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/lib -L../m -Wl,-T -Wl,../src/lscript.ld -o "ANN_Heartbeat_Sorter_SW.elf"  ./src/RNA35b.o ./src/RNA35b_emxAPI.o ./src/RNA35b_emxutil.o ./src/RNA35b_initialize.o ./src/RNA35b_terminate.o ./src/main.o ./src/rtGetInf.o ./src/rtGetNaN.o ./src/rt_nonfinite.o   -l-Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2015.4/gnu/arm/nt/bin/../lib/gcc/arm-xilinx-eabi/4.9.2/../../../../arm-xilinx-eabi/bin/ld.exe: cannot find -l-Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+collect2.exe: error: ld returned 1 exit status
+make: *** [ANN_Heartbeat_Sorter_SW.elf] Error 1
+01:16:32 **** Clean-only build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make clean 
+rm -rf  ./src/RNA35b.o ./src/RNA35b_emxAPI.o ./src/RNA35b_emxutil.o ./src/RNA35b_initialize.o ./src/RNA35b_terminate.o ./src/main.o ./src/rtGetInf.o ./src/rtGetNaN.o ./src/rt_nonfinite.o  ./src/RNA35b.d ./src/RNA35b_emxAPI.d ./src/RNA35b_emxutil.d ./src/RNA35b_initialize.d ./src/RNA35b_terminate.d ./src/main.d ./src/rtGetInf.d ./src/rtGetNaN.d ./src/rt_nonfinite.d  ANN_Heartbeat_Sorter_SW.elf.size  ANN_Heartbeat_Sorter_SW.elf
+' '
+01:16:32 **** Auto Build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make all 
+'Building file: ../src/RNA35b.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/RNA35b.o" -MMD -MP -MF"src/RNA35b.d" -MT"src/RNA35b.d" -o "src/RNA35b.o" "../src/RNA35b.c"
+../src/RNA35b.c: In function 'RNA35b':
+../src/RNA35b.c:265:8: warning: assuming signed overflow does not occur when assuming that (X + c) >= X is always true [-Wstrict-overflow]
+     if (ixstart < ix) {
+        ^
+'Finished building: ../src/RNA35b.c'
+' '
+'Building file: ../src/RNA35b_emxAPI.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/RNA35b_emxAPI.o" -MMD -MP -MF"src/RNA35b_emxAPI.d" -MT"src/RNA35b_emxAPI.d" -o "src/RNA35b_emxAPI.o" "../src/RNA35b_emxAPI.c"
+'Finished building: ../src/RNA35b_emxAPI.c'
+' '
+'Building file: ../src/RNA35b_emxutil.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/RNA35b_emxutil.o" -MMD -MP -MF"src/RNA35b_emxutil.d" -MT"src/RNA35b_emxutil.d" -o "src/RNA35b_emxutil.o" "../src/RNA35b_emxutil.c"
+'Finished building: ../src/RNA35b_emxutil.c'
+' '
+'Building file: ../src/RNA35b_initialize.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/RNA35b_initialize.o" -MMD -MP -MF"src/RNA35b_initialize.d" -MT"src/RNA35b_initialize.d" -o "src/RNA35b_initialize.o" "../src/RNA35b_initialize.c"
+'Finished building: ../src/RNA35b_initialize.c'
+' '
+'Building file: ../src/RNA35b_terminate.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/RNA35b_terminate.o" -MMD -MP -MF"src/RNA35b_terminate.d" -MT"src/RNA35b_terminate.d" -o "src/RNA35b_terminate.o" "../src/RNA35b_terminate.c"
+'Finished building: ../src/RNA35b_terminate.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/main.o" -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/rtGetInf.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/rtGetInf.o" -MMD -MP -MF"src/rtGetInf.d" -MT"src/rtGetInf.d" -o "src/rtGetInf.o" "../src/rtGetInf.c"
+'Finished building: ../src/rtGetInf.c'
+' '
+'Building file: ../src/rtGetNaN.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/rtGetNaN.o" -MMD -MP -MF"src/rtGetNaN.d" -MT"src/rtGetNaN.d" -o "src/rtGetNaN.o" "../src/rtGetNaN.c"
+'Finished building: ../src/rtGetNaN.c'
+' '
+'Building file: ../src/rt_nonfinite.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -c -fmessage-length=0 -MT"src/rt_nonfinite.o" -MMD -MP -MF"src/rt_nonfinite.d" -MT"src/rt_nonfinite.d" -o "src/rt_nonfinite.o" "../src/rt_nonfinite.c"
+'Finished building: ../src/rt_nonfinite.c'
+' '
+'Building target: ANN_Heartbeat_Sorter_SW.elf'
+'Invoking: ARM gcc linker'
+arm-xilinx-eabi-gcc -L../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/lib -Wl,-T -Wl,../src/lscript.ld -o "ANN_Heartbeat_Sorter_SW.elf"  ./src/RNA35b.o ./src/RNA35b_emxAPI.o ./src/RNA35b_emxutil.o ./src/RNA35b_initialize.o ./src/RNA35b_terminate.o ./src/main.o ./src/rtGetInf.o ./src/rtGetNaN.o ./src/rt_nonfinite.o   -l-Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2015.4/gnu/arm/nt/bin/../lib/gcc/arm-xilinx-eabi/4.9.2/../../../../arm-xilinx-eabi/bin/ld.exe: cannot find -l-Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+collect2.exe: error: ld returned 1 exit status
+make: *** [ANN_Heartbeat_Sorter_SW.elf] Error 1
+01:16:49 **** Clean-only build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make clean 
+rm -rf  ./src/RNA35b.o ./src/RNA35b_emxAPI.o ./src/RNA35b_emxutil.o ./src/RNA35b_initialize.o ./src/RNA35b_terminate.o ./src/main.o ./src/rtGetInf.o ./src/rtGetNaN.o ./src/rt_nonfinite.o  ./src/RNA35b.d ./src/RNA35b_emxAPI.d ./src/RNA35b_emxutil.d ./src/RNA35b_initialize.d ./src/RNA35b_terminate.d ./src/main.d ./src/rtGetInf.d ./src/rtGetNaN.d ./src/rt_nonfinite.d  ANN_Heartbeat_Sorter_SW.elf.size  ANN_Heartbeat_Sorter_SW.elf
+' '
+01:16:50 **** Auto Build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make all 
+'Building file: ../src/RNA35b.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -U__STDC__ -U__INT64_MAX__ -U__LDBL_HAS_QUIET_NAN__ -U__WINT_TYPE__ -U__ORDER_LITTLE_ENDIAN__ -U__FRACT_MAX__ -U__DEC64_MAX_EXP__ -U__DA_FBIT__ -U__UINT_LEAST32_TYPE__ -U__SFRACT_MIN__ -U__GCC_ATOMIC_POINTER_LOCK_FREE -U__UINT_FAST64_TYPE__ -U__ARM_FEATURE_QBIT -U__SFRACT_FBIT__ -U__USFRACT_EPSILON__ -U__GCC_ATOMIC_TEST_AND_SET_TRUEVAL -U__BYTE_ORDER__ -U__UINT_LEAST32_MAX__ -U__DECIMAL_DIG__ -U__has_include_next(STR) -U__ACCUM_FBIT__ -U__LLFRACT_MIN__ -U__UFRACT_FBIT__ -U__SIZEOF_SIZE_T__ -U__PRAGMA_REDEFINE_EXTNAME -U__LDBL_MIN__ -U__ATOMIC_RELEASE -U__ARM_FP -U__LFRACT_FBIT__ -U__USFRACT_IBIT__ -U__SCHAR_MAX__ -U__GXX_ABI_VERSION -U__UINTMAX_C(c) -U__GCC_IEC_559_COMPLEX -U__DQ_FBIT__ -U__LLFRACT_IBIT__ -U__UINT64_MAX__ -U__DEC128_MIN__ -U__ULLACCUM_MIN__ -U__UINT16_C(c) -U__LDBL_MIN_10_EXP__ -U__SACCUM_EPSILON__ -U__ULFRACT_IBIT__ -U__INT_FAST16_MAX__ -U__LLACCUM_IBIT__ -U__UINT_FAST8_MAX__ -U__UINT_LEAST64_TYPE__ -U__SACCUM_FBIT__ -U__INT32_C(c) -U__UINT32_MAX__ -U__ULFRACT_MIN__ -U__FLT_MIN_10_EXP__ -U__LFRACT_MIN__ -U__CHAR_UNSIGNED__ -U__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8 -U__arm__ -U__GCC_ATOMIC_LONG_LOCK_FREE -U__UINT8_C(c) -U__LACCUM_FBIT__ -U__LACCUM_EPSILON__ -U__BIGGEST_ALIGNMENT__ -U__SQ_IBIT__ -U__THUMB_INTERWORK__ -U__UINT_LEAST8_MAX__ -U__ARM_ARCH_ISA_THUMB -U__UINT_FAST16_TYPE__ -U__TQ_FBIT__ -U__SA_IBIT__ -U__UINT_FAST32_MAX__ -U__VFP_FP__ -U__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 -U__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 -U__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 -U__UINT_FAST8_TYPE__ -U__HA_IBIT__ -U__ARM_NEON_FP -U__ACCUM_EPSILON__ -U__UDA_IBIT__ -U__SIZEOF_LONG__ -U__UINT64_C(c) -U__ULACCUM_IBIT__ -U__TA_FBIT__ -U__INT_FAST8_MAX__ -U__UDQ_IBIT__ -U__DEC64_EPSILON__ -U__UINTMAX_MAX__ -U__LACCUM_MAX__ -U__UACCUM_MIN__ -U__DEC64_MIN__ -U__WINT_MIN__ -U__USA_FBIT__ -U__REGISTER_PREFIX__ -U__USQ_FBIT__ -U__ARM_FEATURE_LDREX -U__UHA_FBIT__ -U__ARM_FEATURE_UNALIGNED -U__UHQ_FBIT__ -U__UFRACT_MAX__ -U__USES_INITFINI__ -U__INTMAX_C(c) -U__CHAR16_TYPE__ -U__FLT_RADIX__ -U__ORDER_BIG_ENDIAN__ -U__UACCUM_EPSILON__ -U__SIZE_MAX__ -U__QQ_FBIT__ -U__DBL_EPSILON__ -U__ARM_NEON -U__SIZE_TYPE__ -U__ULLACCUM_FBIT__ -U__ACCUM_MIN__ -U__UINT32_TYPE__ -U__LDBL_MAX_EXP__ -U__FLOAT_WORD_ORDER__ -U__UINT_LEAST8_TYPE__ -U__ULLFRACT_IBIT__ -U__ARM_PCS -U__LACCUM_IBIT__ -U__FLT_MAX__ -U__DBL_DENORM_MIN__ -U__DQ_IBIT__ -U__UINT_LEAST64_MAX__ -U__SIZEOF_SHORT__ -U__FRACT_MIN__ -U__DEC32_MIN_EXP__ -U__ULLACCUM_EPSILON__ -U__ULFRACT_MAX__ -U__UINT8_TYPE__ -U__UTA_IBIT__ -U__UTQ_IBIT__ -U__INT_FAST64_TYPE__ -U__INT_LEAST8_MAX__ -U__USFRACT_MAX__ -U__LDBL_HAS_DENORM__ -U__INTPTR_MAX__ -U__INT_LEAST16_TYPE__ -U__INT16_MAX__ -U__INT8_MAX__ -U__UACCUM_FBIT__ -U__INT_LEAST8_TYPE__ -U__DEC32_MAX_EXP__ -U__GCC_ATOMIC_BOOL_LOCK_FREE -U__INT_LEAST32_MAX__ -U__INT_FAST32_MAX__ -U__DEC128_SUBNORMAL_MIN__ -U__LDBL_DIG__ -U__ATOMIC_CONSUME -U__LDBL_DENORM_MIN__ -U__LFRACT_MAX__ -U__UQQ_IBIT__ -U__GNUC_PATCHLEVEL__ -U__LDBL_MIN_EXP__ -U__DBL_HAS_DENORM__ -U__DEC32_MANT_DIG__ -U__UINT_FAST32_TYPE__ -U__ARM_32BIT_STATE -U__VERSION__ -U__ULACCUM_MAX__ -U__SIZEOF_LONG_DOUBLE__ -U__PTRDIFF_MAX__ -U__FLT_EPSILON__ -U__ARM_NEON__ -U__GCC_ATOMIC_INT_LOCK_FREE -U__ARM_FEATURE_CLZ -U__PTRDIFF_TYPE__ -U__GCC_ATOMIC_LLONG_LOCK_FREE -U__UINT16_TYPE__ -U__APCS_32__ -U__SIG_ATOMIC_TYPE__ -U__DBL_MIN__ -U__DEC32_MIN__ -U__LLFRACT_EPSILON__ -U__ULFRACT_EPSILON__ -U__FLT_HAS_DENORM__ -U__SACCUM_MIN__ -U__WCHAR_MIN__ -U__FRACT_IBIT__ -U__ACCUM_MAX__ -U__ARM_FEATURE_SIMD32 -U__CHAR32_TYPE__ -U__FLT_DENORM_MIN__ -U__LFRACT_EPSILON__ -U__ARM_ARCH -U__DEC32_MAX__ -U__INT_LEAST64_TYPE__ -U__CS_SOURCERYGXX_REV__ -U__UACCUM_MAX__ -U__FLT_HAS_QUIET_NAN__ -U__SFRACT_EPSILON__ -U__GNUC_GNU_INLINE__ -U__USACCUM_EPSILON__ -U__UDA_FBIT__ -U__SA_FBIT__ -U__UINT8_MAX__ -U__ULACCUM_MIN__ -U__SQ_FBIT__ -U__HA_FBIT__ -U__UINT32_C(c) -U__LLACCUM_MIN__ -U__INT64_C(c) -U__SIZEOF_LONG_LONG__ -U__USFRACT_FBIT__ -U__LONG_MAX__ -U__GCC_IEC_559 -U__LFRACT_IBIT__ -U__ULACCUM_FBIT__ -U__USER_LABEL_PREFIX__ -U__FLT_MIN_EXP__ -U__INT_FAST8_TYPE__ -U__INT16_TYPE__ -U__UTA_FBIT__ -U__ULACCUM_EPSILON__ -U__INT8_C(c) -U__ULFRACT_FBIT__ -U__ARM_ARCH_PROFILE -U__FLT_MIN__ -U__INT_LEAST64_MAX__ -U__LLACCUM_FBIT__ -U__ATOMIC_ACQ_REL -U__DA_IBIT__ -U__LDBL_HAS_INFINITY__ -U__DEC128_MAX_EXP__ -U__USACCUM_FBIT__ -U__INT16_C(c) -U__GCC_ATOMIC_CHAR16_T_LOCK_FREE -U__DBL_DIG__ -U__DEC_EVAL_METHOD__ -U__CS_SOURCERYGXX_MAJ__ -U__INT_LEAST16_MAX__ -U__CHAR_BIT__ -U__UHA_IBIT__ -U__ARM_ARCH_ISA_ARM -U__SFRACT_IBIT__ -U__UFRACT_IBIT__ -U__ARM_FEATURE_SAT -U__ATOMIC_SEQ_CST -U__HQ_FBIT__ -U__FLT_EVAL_METHOD__ -U__FLT_MAX_10_EXP__ -U__CS_SOURCERYGXX_MIN__ -U__ULLFRACT_MIN__ -U__UINTPTR_MAX__ -U__ACCUM_IBIT__ -U__SIZEOF_DOUBLE__ -U__SIZEOF_WCHAR_T__ -U__DEC32_SUBNORMAL_MIN__ -U__USACCUM_MAX__ -U__DEC128_EPSILON__ -U__UDQ_FBIT__ -U__DBL_MAX_10_EXP__ -U__INT_FAST32_TYPE__ -U__NO_INLINE__ -U__DBL_HAS_INFINITY__ -U__UINT_FAST16_MAX__ -U__LDBL_MANT_DIG__ -U__FRACT_EPSILON__ -U__DBL_MIN_10_EXP__ -U__USA_IBIT__ -U__INT64_TYPE__ -U__USQ_IBIT__ -U__GCC_ATOMIC_SHORT_LOCK_FREE -U__UHQ_IBIT__ -U__ULLACCUM_IBIT__ -U__GNUC_MINOR__ -U__ATOMIC_RELAXED -U__ARM_FEATURE_DSP -U__FINITE_MATH_ONLY__ -U__GCC_ATOMIC_CHAR32_T_LOCK_FREE -U__INT_LEAST32_TYPE__ -U__ARM_SIZEOF_MINIMAL_ENUM -U__DBL_DECIMAL_DIG__ -U__DBL_MAX__ -U__SACCUM_IBIT__ -U__DBL_MIN_EXP__ -U__UINT_LEAST16_TYPE__ -U__FLT_DIG__ -U__UQQ_FBIT__ -U__SIZEOF_PTRDIFF_T__ -U__TA_IBIT__ -U__WCHAR_MAX__ -U__ARM_ARCH_7A__ -U__FLT_HAS_INFINITY__ -U__INT_MAX__ -U__ARMEL__ -U__LDBL_MAX_10_EXP__ -U__LLFRACT_FBIT__ -U__ULLFRACT_EPSILON__ -U__HQ_IBIT__ -U__TQ_IBIT__ -U__SFRACT_MAX__ -U__ARM_SIZEOF_WCHAR_T -U__SIZEOF_FLOAT__ -U__INT_FAST64_MAX__ -U__INT32_TYPE__ -U__DEC64_MIN_EXP__ -U__UINT_LEAST16_MAX__ -U__DEC128_MIN_EXP__ -U__SIG_ATOMIC_MIN__ -U__GNUC__ -U__DEC64_MANT_DIG__ -U__ARM_EABI__ -U__UFRACT_EPSILON__ -U__LLACCUM_MAX__ -U__DEC128_MAX__ -U__DBL_MANT_DIG__ -U__UACCUM_IBIT__ -U__UTQ_FBIT__ -U__USACCUM_IBIT__ -U__DEC128_MANT_DIG__ -U__ULLFRACT_MAX__ -U__SIG_ATOMIC_MAX__ -U__USFRACT_MIN__ -U__ELF__ -U__LLACCUM_EPSILON__ -U__ULLFRACT_FBIT__ -U__UINTMAX_TYPE__ -U__INTPTR_TYPE__ -U__QQ_IBIT__ -U__USACCUM_MIN__ -U__ATOMIC_ACQUIRE -U__ULLACCUM_MAX__ -U__LONG_LONG_MAX__ -U__LDBL_EPSILON__ -U__GCC_ATOMIC_CHAR_LOCK_FREE -U__INT32_MAX__ -U__FLT_MANT_DIG__ -U__UINT16_MAX__ -U__LLFRACT_MAX__ -U__GXX_TYPEINFO_EQUALITY_INLINE -U__INTMAX_TYPE__ -U__has_include(STR) -U__INT8_TYPE__ -U__FLT_DECIMAL_DIG__ -U__DEC64_MAX__ -U__SIZEOF_INT__ -U__FLT_MAX_EXP__ -U__SHRT_MAX__ -U__INTMAX_MAX__ -U__LDBL_MAX__ -U__DBL_MAX_EXP__ -U__DEC32_EPSILON__ -U__UINT_FAST64_MAX__ -U__STDC_HOSTED__ -U__DBL_HAS_QUIET_NAN__ -U__GCC_ATOMIC_WCHAR_T_LOCK_FREE -U__UFRACT_MIN__ -U__SIZEOF_WINT_T__ -U__UINT64_TYPE__ -U__INT_FAST16_TYPE__ -U__ORDER_PDP_ENDIAN__ -U__WCHAR_TYPE__ -U__UINTPTR_TYPE__ -U__SIZEOF_POINTER__ -U__FRACT_FBIT__ -U__DEC64_SUBNORMAL_MIN__ -U__LACCUM_MIN__ -U__WINT_MAX__ -U__SACCUM_MAX__ -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b.o" -MMD -MP -MF"src/RNA35b.d" -MT"src/RNA35b.d" -o "src/RNA35b.o" "../src/RNA35b.c"
+<command-line>:0:1: warning: undefining "__STDC__"
+<command-line>:0:19: warning: extra tokens at end of #undef directive
+<command-line>:0:12: warning: extra tokens at end of #undef directive
+<command-line>:0:11: warning: extra tokens at end of #undef directive
+<command-line>:0:10: warning: extra tokens at end of #undef directive
+<command-line>:0:10: warning: extra tokens at end of #undef directive
+<command-line>:0:11: warning: extra tokens at end of #undef directive
+<command-line>:0:11: warning: extra tokens at end of #undef directive
+<command-line>:0:11: warning: extra tokens at end of #undef directive
+<command-line>:0:10: warning: extra tokens at end of #undef directive
+<command-line>:0:9: warning: extra tokens at end of #undef directive
+<command-line>:0:10: warning: extra tokens at end of #undef directive
+<command-line>:0:14: warning: extra tokens at end of #undef directive
+<command-line>:0:1: warning: undefining "__STDC_HOSTED__"
+In file included from c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\sys\config.h:4:0,
+                 from c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\_ansi.h:16,
+                 from c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\sys\reent.h:13,
+                 from c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\math.h:10,
+                 from ../src/RNA35b.h:12,
+                 from ../src/RNA35b.c:10:
+c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\machine\ieeefp.h:420:2: error: #error Endianess not declared!!
+ #error Endianess not declared!!
+  ^
+In file included from c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\math.h:10:0,
+                 from ../src/RNA35b.h:12,
+                 from ../src/RNA35b.c:10:
+c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\sys\reent.h:205:43: error: expected ')' before '(' token
+   _READ_WRITE_RETURN_TYPE _EXFNPTR(_read, (struct _reent *, _PTR,
+                                           ^
+c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\sys\reent.h:207:44: error: expected ')' before '(' token
+   _READ_WRITE_RETURN_TYPE _EXFNPTR(_write, (struct _reent *, _PTR,
+                                            ^
+c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\sys\reent.h:210:27: error: expected ')' before '(' token
+   _fpos_t _EXFNPTR(_seek, (struct _reent *, _PTR, _fpos_t, int));
+                           ^
+c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\sys\reent.h:211:24: error: expected ')' before '(' token
+   int _EXFNPTR(_close, (struct _reent *, _PTR));
+                        ^
+c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\sys\reent.h:607:28: error: expected ')' before '(' token
+   void _EXFNPTR(__cleanup, (struct _reent *));
+                            ^
+In file included from c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\math.h:11:0,
+                 from ../src/RNA35b.h:12,
+                 from ../src/RNA35b.c:10:
+c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\machine\ieeefp.h:420:2: error: #error Endianess not declared!!
+ #error Endianess not declared!!
+  ^
+In file included from c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\stdlib.h:10:0,
+                 from ../src/RNA35b.h:14,
+                 from ../src/RNA35b.c:10:
+c:\xilinx\sdk\2015.4\gnu\arm\nt\arm-xilinx-eabi\include\machine\ieeefp.h:420:2: error: #error Endianess not declared!!
+ #error Endianess not declared!!
+  ^
+make: *** [src/RNA35b.o] Error 1
+01:16:51 **** Clean-only build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make clean 
+rm -rf  ./src/RNA35b.o ./src/RNA35b_emxAPI.o ./src/RNA35b_emxutil.o ./src/RNA35b_initialize.o ./src/RNA35b_terminate.o ./src/main.o ./src/rtGetInf.o ./src/rtGetNaN.o ./src/rt_nonfinite.o  ./src/RNA35b.d ./src/RNA35b_emxAPI.d ./src/RNA35b_emxutil.d ./src/RNA35b_initialize.d ./src/RNA35b_terminate.d ./src/main.d ./src/rtGetInf.d ./src/rtGetNaN.d ./src/rt_nonfinite.d  ANN_Heartbeat_Sorter_SW.elf.size  ANN_Heartbeat_Sorter_SW.elf
+' '
+01:16:51 **** Auto Build of configuration Release for project ANN_Heartbeat_Sorter_SW ****
+make all 
+'Building file: ../src/RNA35b.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b.d" -MT"src/RNA35b.d" -o "src/RNA35b.o" "../src/RNA35b.c"
+../src/RNA35b.c: In function 'RNA35b':
+../src/RNA35b.c:265:8: warning: assuming signed overflow does not occur when assuming that (X + c) >= X is always true [-Wstrict-overflow]
+     if (ixstart < ix) {
+        ^
+'Finished building: ../src/RNA35b.c'
+' '
+'Building file: ../src/RNA35b_emxAPI.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_emxAPI.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_emxAPI.d" -MT"src/RNA35b_emxAPI.d" -o "src/RNA35b_emxAPI.o" "../src/RNA35b_emxAPI.c"
+'Finished building: ../src/RNA35b_emxAPI.c'
+' '
+'Building file: ../src/RNA35b_emxutil.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_emxutil.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_emxutil.d" -MT"src/RNA35b_emxutil.d" -o "src/RNA35b_emxutil.o" "../src/RNA35b_emxutil.c"
+'Finished building: ../src/RNA35b_emxutil.c'
+' '
+'Building file: ../src/RNA35b_initialize.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_initialize.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_initialize.d" -MT"src/RNA35b_initialize.d" -o "src/RNA35b_initialize.o" "../src/RNA35b_initialize.c"
+'Finished building: ../src/RNA35b_initialize.c'
+' '
+'Building file: ../src/RNA35b_terminate.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/RNA35b_terminate.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/RNA35b_terminate.d" -MT"src/RNA35b_terminate.d" -o "src/RNA35b_terminate.o" "../src/RNA35b_terminate.c"
+'Finished building: ../src/RNA35b_terminate.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/main.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building file: ../src/rtGetInf.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rtGetInf.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rtGetInf.d" -MT"src/rtGetInf.d" -o "src/rtGetInf.o" "../src/rtGetInf.c"
+'Finished building: ../src/rtGetInf.c'
+' '
+'Building file: ../src/rtGetNaN.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rtGetNaN.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rtGetNaN.d" -MT"src/rtGetNaN.d" -o "src/rtGetNaN.o" "../src/rtGetNaN.c"
+'Finished building: ../src/rtGetNaN.c'
+' '
+'Building file: ../src/rt_nonfinite.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/rt_nonfinite.o" -I../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rt_nonfinite.d" -MT"src/rt_nonfinite.d" -o "src/rt_nonfinite.o" "../src/rt_nonfinite.c"
+'Finished building: ../src/rt_nonfinite.c'
+' '
+'Building target: ANN_Heartbeat_Sorter_SW.elf'
+'Invoking: ARM gcc linker'
+arm-xilinx-eabi-gcc -L../../ANN_Heartbeat_Sorter_SW_bsp/ps7_cortexa9_0/lib -Wl,-T -Wl,../src/lscript.ld -o "ANN_Heartbeat_Sorter_SW.elf"  ./src/RNA35b.o ./src/RNA35b_emxAPI.o ./src/RNA35b_emxutil.o ./src/RNA35b_initialize.o ./src/RNA35b_terminate.o ./src/main.o ./src/rtGetInf.o ./src/rtGetNaN.o ./src/rt_nonfinite.o   -l-Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+c:/xilinx/sdk/2015.4/gnu/arm/nt/bin/../lib/gcc/arm-xilinx-eabi/4.9.2/../../../../arm-xilinx-eabi/bin/ld.exe: cannot find -l-Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+collect2.exe: error: ld returned 1 exit status
+make: *** [ANN_Heartbeat_Sorter_SW.elf] Error 1
