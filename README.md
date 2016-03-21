@@ -1,7 +1,13 @@
-Carlos III University of Madrid 
-Master's Thesis Project 
-Author: Pedro Marcos Solórzano 
+#Carlos III University of Madrid
+##Master in Electronics Systems
+
+Master's Thesis Project
+
+Author: Pedro Marcos Solórzano
+
 Tutor: Luís Mengibar Pozo
+
+---------------------------------------------------------------
 
 Vivado project for Zybo board.
 
