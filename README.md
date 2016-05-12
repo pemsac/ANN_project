@@ -9,9 +9,10 @@ Tutor: Luís Mengibar Pozo
 
 ---------------------------------------------------------------
 
-Vivado project for Zybo board.
+Heatbeats Classifier Software based in Artificial Neuronal Network(ANN).
 
-This is a first project that consists in an implementation of a Zynq ARM processor to run an ANN-based Heartbeat Sorter as Standalone,
-without any hardware acceleration.
+This software is developed to be run on a Zybo board (Zynq 7010 ARM CPU) in 
+order to check the proper working of the algorithm. The goal of the project is 
+to implement this algorithm on FPGA.
 
-This project is a continuation of ANN_Microblaze_project 
+This is a continuation of ANN_Microblaze_project.
