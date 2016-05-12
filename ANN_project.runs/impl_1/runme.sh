@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/Zynq/ANN_project/ANN_project.runs/impl_1'
+HD_PWD='E:/ANN_project/ANN_project.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -41,7 +41,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .init_design.begin.rst
-EAStep vivado -log SW_design_wrapper.vdi -applog -m64 -messageDb vivado.pb -mode batch -source SW_design_wrapper.tcl -notrace
+/bin/touch .write_bitstream.begin.rst
+EAStep vivado -log ANN_SW_design_wrapper.vdi -applog -m64 -messageDb vivado.pb -mode batch -source ANN_SW_design_wrapper.tcl -notrace
 
 

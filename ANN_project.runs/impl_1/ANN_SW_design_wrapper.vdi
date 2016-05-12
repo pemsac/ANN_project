@@ -1,0 +1,48 @@
+#-----------------------------------------------------------
+# Vivado v2015.4.2 (64-bit)
+# SW Build 1494164 on Fri Feb 26 04:18:56 MST 2016
+# IP Build 1491208 on Wed Feb 24 03:25:39 MST 2016
+# Start of session at: Fri May 13 00:36:55 2016
+# Process ID: 5172
+# Current directory: E:/ANN_project/ANN_project.runs/impl_1
+# Command line: vivado.exe -log ANN_SW_design_wrapper.vdi -applog -messageDb vivado.pb -mode batch -source ANN_SW_design_wrapper.tcl -notrace
+# Log file: E:/ANN_project/ANN_project.runs/impl_1/ANN_SW_design_wrapper.vdi
+# Journal file: E:/ANN_project/ANN_project.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source ANN_SW_design_wrapper.tcl -notrace
+Command: open_checkpoint ANN_SW_design_wrapper_routed.dcp
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2015.4.2
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/ANN_project/ANN_project.runs/impl_1/.Xil/Vivado-5172-/dcp/ANN_SW_design_wrapper_early.xdc]
+Finished Parsing XDC File [E:/ANN_project/ANN_project.runs/impl_1/.Xil/Vivado-5172-/dcp/ANN_SW_design_wrapper_early.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.325 . Memory (MB): peak = 480.652 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.325 . Memory (MB): peak = 480.652 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2015.4.2 (64-bit) build 1494164
+open_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 480.652 ; gain = 292.680
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command write_bitstream
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./ANN_SW_design_wrapper.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+write_bitstream: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 821.977 ; gain = 341.324
+INFO: [Common 17-206] Exiting Vivado at Fri May 13 00:37:30 2016...

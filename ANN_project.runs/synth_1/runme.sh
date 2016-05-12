@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/Zynq/ANN_project/ANN_project.runs/synth_1'
+HD_PWD='E:/ANN_project/ANN_project.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log SW_design_wrapper.vds -m64 -mode batch -messageDb vivado.pb -notrace -source SW_design_wrapper.tcl
+EAStep vivado -log ANN_SW_design_wrapper.vds -m64 -mode batch -messageDb vivado.pb -notrace -source ANN_SW_design_wrapper.tcl

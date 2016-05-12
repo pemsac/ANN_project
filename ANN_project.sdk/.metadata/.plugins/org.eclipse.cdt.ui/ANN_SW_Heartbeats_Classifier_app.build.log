@@ -1,0 +1,6 @@
+00:54:25 **** Incremental Build of configuration Release for project ANN_SW_Heartbeats_Classifier_app ****
+make all 
+make: Nothing to be done for `all'.
+
+00:54:25 Build Finished (took 213ms)
+
