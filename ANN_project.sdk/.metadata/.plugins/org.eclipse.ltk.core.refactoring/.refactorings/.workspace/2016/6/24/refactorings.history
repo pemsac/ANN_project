@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ANN_SW_Heartbeats_Classifier_app/include&apos;" deleteContents="false" description="Delete resource &apos;ANN_SW_Heartbeats_Classifier_app/include&apos;" element1="/ANN_SW_Heartbeats_Classifier_app/include" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1465663468521"/>
+</session>

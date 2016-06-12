@@ -19,7 +19,6 @@
 #include "rtwtypes.h"
 
 
-
 /* Function Declarations */
 static void mapminmax_apply(const emxArray_real_T *x, emxArray_real_T *y);
 static void softmax_apply(emxArray_real_T *n, emxArray_real_T *a);

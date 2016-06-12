@@ -38,13 +38,13 @@
  * File System configuration
  * Size in bytes.
  */
-#define FS_PATH					"0:/"
-#define INPUT_DIR               "testN.txt"
+#define FS_PATH			"0:/"
+#define INPUT_DIR		"testQ.txt"
 /*
  * Input data configuration:
  */
-#define NUM_DATA_BEAT			28
-#define NUM_DATA_RESULT         5
+#define NUM_DATA_BEAT		28
+#define NUM_DATA_RESULT		5
 
 /*
  * Include files
@@ -75,18 +75,10 @@ int main(int argc , char * argv []){
   FRESULT fStatus;
   FATFS fileSystem;
   FIL file;
-  int
-  status,
-  i,
-  maxValuePos,
-  fOffset=0,
-  fBytesRead,
-  beatsCounter=0,
-  fSize;
-  double
-  maxValue,
-  beatData[NUM_DATA_BEAT],
-  result[NUM_DATA_RESULT];
+  int status, i, maxValuePos, fOffset=-1, offset=0, fBytesRead, beatsCounter=0,
+      fSize;
+  u8 *beatBuffer;
+  double maxValue, beatData[NUM_DATA_BEAT], result[NUM_DATA_RESULT];
   emxArray_real_T *inputs, *outputs;
 
   /*
@@ -102,8 +94,9 @@ int main(int argc , char * argv []){
   /*
    * Introduction
    */
-  xil_printf("\r\nHEARTBEAT SORTER\r\n\r\n");
+  xil_printf("\r\nHEARTBEAT CLASSIFIER\r\n\r\n");
   xil_printf("Opening and reading %s%s....\r\n", FS_PATH, INPUT_DIR);
+
   /*
    * Initialize the memory file system
    */
@@ -123,15 +116,15 @@ int main(int argc , char * argv []){
       return XST_FAILURE;
   }
   /*
-   * Get the file's size and declare its buffer
+   * Get the file's size
    *    */
   fSize = file.fsize;
   u8 fBuffer[fSize];
-
   /*
    * Read input data from file to buffer.
    */
   f_lseek(&file, 0);
+
   fStatus = f_read(&file, (void*)fBuffer, fSize, &fBytesRead);
   if (fStatus || fSize!=fBytesRead) {
       xil_printf(
@@ -142,26 +135,28 @@ int main(int argc , char * argv []){
       XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
       return XST_FAILURE;
   }
-
   /*
    * Data processing.
    */
   xil_printf("Done! Read %i bytes of Data. The beats classified are:\r\n\r\n",fSize);
-  while (1){
-      /*
-       * Counter
-       */
-      ++beatsCounter;
 
+  while (1){
       /*
        * Get the data of the next beat to be processed from the file buffer
        * If there aren't more valid data, terminate the loop
        */
+      offset=-1;
+      do
+	beatBuffer[++offset] = fBuffer[++fOffset];
+      while(beatBuffer[offset]!='\n');
+
+      offset=0;
       for (i=0; i < NUM_DATA_BEAT; ++i){
-	  status = sscanf (fBuffer+fOffset, "%lf%n", &beatData[i], &fBytesRead);
+
+	  status = sscanf (beatBuffer+offset, "%lf%n", &beatData[i], &fBytesRead);
 	  if(status<=0)
-	    i=NUM_DATA_BEAT;
-	  fOffset+=fBytesRead;
+	    break;
+	  offset+=fBytesRead;
       }
       if(status<=0)
 	break;
@@ -190,15 +185,15 @@ int main(int argc , char * argv []){
        * through UART.
        */
       if (maxValuePos == 0)
-	xil_printf("Beat No %i \t N Normal Beat\r\n",beatsCounter);
+	xil_printf("Beat No %i \t N Normal Beat\r\n",++beatsCounter);
       else if (maxValuePos == 1)
-	xil_printf("Beat No %i \tS Supraventricular Ectopic Beat\r\n",beatsCounter);
+	xil_printf("Beat No %i \tS Supraventricular Ectopic Beat\r\n",++beatsCounter);
       else if (maxValuePos == 2)
-	xil_printf("Beat No %i \tV Ventricular Ectopic Beat\r\n",beatsCounter);
+	xil_printf("Beat No %i \tV Ventricular Ectopic Beat\r\n",++beatsCounter);
       else if (maxValuePos == 3)
-	xil_printf("Beat No %i \tF Fusion Beat\r\n",beatsCounter);
+	xil_printf("Beat No %i \tF Fusion Beat\r\n",++beatsCounter);
       else if(maxValuePos == 4)
-	xil_printf("Beat No %i \tS Unknown Beat\r\n",beatsCounter);
+	xil_printf("Beat No %i \tS Unknown Beat\r\n",++beatsCounter);
       /*
        * free ANN input/output memory
        */
