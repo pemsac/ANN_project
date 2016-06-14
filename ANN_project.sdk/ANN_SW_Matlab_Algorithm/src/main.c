@@ -5,7 +5,8 @@
  * Master Final Thesis: Heartbeat classifier based on ANN (Artificial Neural
  * Network).
  *
- * Author: Pedro Marcos Solï¿½rzan * Tutor: Luis Mengibar Pozo (Tutor)
+ * Author: Pedro Marcos Solórzano
+ * Tutor: Luis Mengibar Pozo (Tutor)
  *
  *
  *
