@@ -1,6 +1,6 @@
-01:59:46 **** Auto Build of configuration Release for project ANN_SW_Zynq_first_stage_bootloader ****
+00:56:00 **** Incremental Build of configuration Release for project ANN_SW_Zynq_first_stage_bootloader ****
 make all 
 make: Nothing to be done for `all'.
 
-01:59:47 Build Finished (took 1s.41ms)
+00:56:00 Build Finished (took 199ms)
 

@@ -1,0 +1,106 @@
+/**
+ *
+ * Carlos III University of Madrid.
+ *
+ * Master Final Thesis: Heartbeat classifier based on ANN (Artificial Neural
+ * Network).
+ *
+ * Author: Pedro Marcos Solórzano
+ * Tutor: Luis Mengibar Pozo (Tutor)
+ *
+ *
+ * Back-propagation training for feedforward ANN
+ * Source file
+ *
+ *
+ */
+
+#include "Training.h"
+
+/*
+ * Empty constructor
+ */
+Training::Training (){}
+
+
+/*
+ * Constructor method. It creates a new ANN with random weights and trains it.
+ * These parameters must be set:
+ * - number of layers (including input & output layers)
+ * - number of neurons in each layer
+ * - momentum for the training
+ * - learning rate
+ */
+Training::Training (int layers, int *layerSizes, double momentum,
+                    double learningRate){
+  int i, j, k;
+  double ***weights;
+  /*
+   * Memory allocation.
+   * Take into account the first layer's neurons (input) don't have neither
+   * weights nor delta error
+   */
+  _deltaErr = new double*[layers];
+  for(i=1; i<layers; ++i)
+    _deltaErr[i] = new double[layerSizes];
+
+  weights = new double**[layers];
+  for(i=1; i<layers; ++i)
+    weights[i]=new double*[layerSizes[i]];
+  for(i=1; i<layers; ++i)
+    for(j=0; j<layerSizes[i]; ++j)
+      weights[i][j] = new double[layerSizes[i-1]+1];
+
+  _prevWeight = new double**[layers];
+  for(i=1; i<layers; ++i)
+    _prevWeight[i]=new double*[layerSizes[i]];
+  for(i=1; i<layers; ++i)
+    for(j=0; j<layerSizes[i]; ++j)
+      _prevWeight[i][j] = new double[layerSizes[i-1]+1];
+
+  /*
+   * Save random weights in the matrix
+   */
+  for(i=1; i<layers; ++i)
+    for(j=0; j<layerSizes[i]; ++j)
+      for(k=0; k<layerSizes[i-1]+1; ++k)
+	weights[i][j][k] = (double)(rand())/(RAND_MAX/2) - 1;
+
+  /*
+   * Previous weights initialization
+   */
+  for(i=1; i<layers; ++i)
+    for(j=0; j<layerSizes[i]; ++j)
+      for(k=0; k<layerSizes[i-1]+1; ++k)
+	_prevWeight[i][j][k] = 0;
+
+  /*
+   * Data copy and untrained ANN creation.
+   */
+  _learningRate = learningRate;
+
+  _momentum = momentum;
+
+  _ann = new ANN(layers, layerSizes, weights);
+}
+
+
+Training::~Training ()
+{
+  /*
+   * Free all dynamic memory
+   */
+  for(i=1; i<_ann.getLayers; ++i)
+    for(j=0; j<_ann.LayerSizes(i); ++j)
+      delete[] _prevWeight[i][j];
+  for(i=1; i<_ann.getLayers; ++i)
+    delete[] _prevWeight[i];
+  delete[] _prevWeight;
+
+  for(i=1; i<_ann.getLayers; ++i)
+    delete[] _deltaErr[i];
+  delete[] _deltaErr;
+
+  delete[] _ann;
+}
+

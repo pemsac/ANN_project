@@ -1,0 +1,57 @@
+/**
+ *
+ * Carlos III University of Madrid.
+ *
+ * Master Final Thesis: Heartbeat classifier based on ANN (Artificial Neural
+ * Network).
+ *
+ * Author: Pedro Marcos Solórzano
+ * Tutor: Luis Mengibar Pozo (Tutor)
+ *
+ *
+ * Back-propagation trainer for feedforward ANN
+ * Source file
+ *
+ *
+ */
+
+#include "Training.h"
+
+/*
+ * Empty constructor
+ */
+Training::Training (){}
+
+
+/*
+ * Constructor method. Create a new ANN and train it setting:
+ * - number of layers (including input & output layers)
+ * - number of neurons in each layer
+ * - momentum for the training
+ * - learning rate
+ * - delta errors for each neuron.
+ */
+Training::Training (int layers, int *layerSizes, double momentum, double learningRate,
+          double **deltaError){
+  int i;
+  double ***weights;
+  /*
+   * Memory allocation
+   */
+  _deltaError = new double*[layers];
+  for(i=1; i<layers; ++i)
+    _deltaError[i] = new double[layerSizes];
+
+  /*
+   * Create a
+   */
+
+
+}
+
+
+Training::~Training ()
+{
+  // TODO Auto-generated destructor stub
+}
+

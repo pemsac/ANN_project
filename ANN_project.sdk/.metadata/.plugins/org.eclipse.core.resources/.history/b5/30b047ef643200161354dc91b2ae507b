@@ -1,0 +1,78 @@
+/**
+ *
+ * Carlos III University of Madrid.
+ *
+ * Master Final Thesis: Heartbeat classifier based on ANN (Artificial Neural
+ * Network).
+ *
+ * Author: Pedro Marcos Solórzano
+ * Tutor: Luis Mengibar Pozo (Tutor)
+ *
+ *
+ * Back-propagation trainer for feedforward ANN
+ * Header file
+ *
+ *
+ */
+
+/*
+ * Header guard
+ */
+#ifndef TRAINING_H_
+#define TRAINING_H_
+
+/*
+ * back-propagation train status
+ */
+typedef int BackPropStatus;
+#define
+
+/*
+ * Includes
+ */
+#include "ANN.h"
+
+/*
+ * Back-propagation training class
+ * This class is derived from ANN class
+ */
+class BackProp{
+
+private:
+  /*
+   * Private variables:
+   * Besides the protected ANN variables, the training needs some parameters
+   * such as delta error, learning Rate and momentum.
+   * On the other hand, an extra variable to store the previous weight of the
+   * neurons is needed.
+   */
+  double **_deltaError, ***_prevWeight, _learningRate, _momentum;
+
+  ANN _ann;
+
+public:
+  /*
+   * Empty constructor
+   */
+  BackProp();
+  /*
+   * Constructor method. Create a new ANN and train it setting:
+   * - number of layers (including input & output layers)
+   * - number of neurons in each layer
+   * - momentum for the training
+   * - learning rate
+   * - delta errors for each neuron.
+   */
+  BackProp(int layers, int *layerSizes, double momentum, double learningRate,
+            double **deltaError);
+  /*
+   * BackProp method
+   */
+  int backpropagation(int interations, int threshold, );
+  /*
+   * Destructor
+   */
+  virtual ~BackProp();
+};
+
+#endif

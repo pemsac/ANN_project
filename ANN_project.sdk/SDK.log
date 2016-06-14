@@ -682,3 +682,512 @@ con
 20:03:13 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
 01:59:48 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
 01:59:50 INFO  : XSDB server has started successfully.
+14:10:10 INFO  : Example project ANN_SW_standalone_bsp_xscutimer_polled_example_1 has been created successfully.
+18:03:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:03:30 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:03:31 INFO  : FPGA configured successfully with bitstream "E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ANN_SW_design_wrapper.bit"
+18:06:38 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:06:38 INFO  : 'fpga -state' command is executed.
+18:06:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:06:38 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:06:38 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:06:39 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:06:39 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:06:39 INFO  : 'stop' command is executed.
+18:06:39 INFO  : 'ps7_init' command is executed.
+18:06:39 INFO  : 'ps7_post_config' command is executed.
+18:06:40 INFO  : 'con' command is executed.
+18:06:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:06:40 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:06:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:06:41 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:06:41 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:06:41 INFO  : Memory regions updated for context APU
+18:06:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:06:41 INFO  : 'con' command is executed.
+18:06:41 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:07:57 INFO  : Disconnected from the channel tcfchan#1.
+18:07:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:07:58 INFO  : 'fpga -state' command is executed.
+18:07:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:07:58 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:07:58 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:08:01 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:08:01 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:08:01 INFO  : 'stop' command is executed.
+18:08:01 INFO  : 'ps7_init' command is executed.
+18:08:02 INFO  : 'ps7_post_config' command is executed.
+18:08:02 INFO  : 'con' command is executed.
+18:08:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:08:02 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:08:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:08:03 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:08:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:08:03 INFO  : Memory regions updated for context APU
+18:08:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:08:03 INFO  : 'con' command is executed.
+18:08:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:09:48 INFO  : Disconnected from the channel tcfchan#2.
+18:09:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:09:49 INFO  : 'fpga -state' command is executed.
+18:09:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:09:49 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:09:49 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:09:51 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:09:52 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:09:52 INFO  : 'stop' command is executed.
+18:09:52 INFO  : 'ps7_init' command is executed.
+18:09:53 INFO  : 'ps7_post_config' command is executed.
+18:09:53 INFO  : 'con' command is executed.
+18:09:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:09:53 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:09:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:09:54 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:09:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:09:54 INFO  : Memory regions updated for context APU
+18:09:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:09:54 INFO  : 'con' command is executed.
+18:09:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:24:47 INFO  : Disconnected from the channel tcfchan#3.
+18:24:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:24:48 INFO  : 'fpga -state' command is executed.
+18:24:48 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:24:48 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:24:49 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:24:51 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:24:51 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:24:51 INFO  : 'stop' command is executed.
+18:24:52 INFO  : 'ps7_init' command is executed.
+18:24:52 INFO  : 'ps7_post_config' command is executed.
+18:24:52 INFO  : 'con' command is executed.
+18:24:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:24:52 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:24:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:24:53 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:24:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:24:53 INFO  : Memory regions updated for context APU
+18:24:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:24:53 INFO  : 'con' command is executed.
+18:24:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:25:34 INFO  : Disconnected from the channel tcfchan#4.
+18:25:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:25:34 INFO  : 'fpga -state' command is executed.
+18:25:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:25:35 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:25:35 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:25:37 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:25:37 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:25:37 INFO  : 'stop' command is executed.
+18:25:38 INFO  : 'ps7_init' command is executed.
+18:25:38 INFO  : 'ps7_post_config' command is executed.
+18:25:38 INFO  : 'con' command is executed.
+18:25:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:25:38 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:25:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:25:39 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:25:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:25:39 INFO  : Memory regions updated for context APU
+18:25:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:25:39 INFO  : 'con' command is executed.
+18:25:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:31:45 INFO  : Disconnected from the channel tcfchan#5.
+18:31:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:31:46 INFO  : 'fpga -state' command is executed.
+18:31:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:31:46 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:31:46 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:31:48 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:31:49 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:31:49 INFO  : 'stop' command is executed.
+18:31:49 INFO  : 'ps7_init' command is executed.
+18:31:49 INFO  : 'ps7_post_config' command is executed.
+18:31:49 INFO  : 'con' command is executed.
+18:31:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:31:50 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:31:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:31:50 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:31:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:31:51 INFO  : Memory regions updated for context APU
+18:31:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:31:51 INFO  : 'con' command is executed.
+18:31:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:32:16 INFO  : Disconnected from the channel tcfchan#6.
+18:32:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:32:16 INFO  : 'fpga -state' command is executed.
+18:32:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:32:16 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:32:17 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:32:19 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:32:19 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:32:19 INFO  : 'stop' command is executed.
+18:32:19 INFO  : 'ps7_init' command is executed.
+18:32:19 INFO  : 'ps7_post_config' command is executed.
+18:32:20 INFO  : 'con' command is executed.
+18:32:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:32:20 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:32:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:32:21 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:32:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:32:21 INFO  : Memory regions updated for context APU
+18:32:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:32:22 INFO  : 'con' command is executed.
+18:32:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:32:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:32:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:32:56 INFO  : FPGA configured successfully with bitstream "E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ANN_SW_design_wrapper.bit"
+18:33:03 INFO  : Disconnected from the channel tcfchan#7.
+18:33:03 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:33:03 INFO  : 'fpga -state' command is executed.
+18:33:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:33:04 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:33:04 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:33:06 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:33:06 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:33:07 INFO  : 'stop' command is executed.
+18:33:07 INFO  : 'ps7_init' command is executed.
+18:33:07 INFO  : 'ps7_post_config' command is executed.
+18:33:07 INFO  : 'con' command is executed.
+18:33:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:33:08 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:33:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:33:09 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:33:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:33:09 INFO  : Memory regions updated for context APU
+18:33:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:33:10 INFO  : 'con' command is executed.
+18:33:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:46:36 INFO  : Disconnected from the channel tcfchan#8.
+18:46:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:46:37 INFO  : 'fpga -state' command is executed.
+18:46:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:46:37 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:46:37 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:46:39 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:46:40 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:46:40 INFO  : 'stop' command is executed.
+18:46:40 INFO  : 'ps7_init' command is executed.
+18:46:41 INFO  : 'ps7_post_config' command is executed.
+18:46:41 INFO  : 'con' command is executed.
+18:46:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:46:41 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:46:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:46:42 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:46:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:46:42 INFO  : Memory regions updated for context APU
+18:46:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:46:43 INFO  : 'con' command is executed.
+18:46:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+18:48:52 INFO  : Disconnected from the channel tcfchan#9.
+18:48:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+18:48:52 INFO  : 'fpga -state' command is executed.
+18:48:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:48:53 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:48:53 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:48:55 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+18:48:55 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+18:48:55 INFO  : 'stop' command is executed.
+18:48:56 INFO  : 'ps7_init' command is executed.
+18:48:56 INFO  : 'ps7_post_config' command is executed.
+18:48:56 INFO  : 'con' command is executed.
+18:48:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:48:57 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:48:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:48:58 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:48:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+18:48:58 INFO  : Memory regions updated for context APU
+18:48:58 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:48:59 INFO  : 'con' command is executed.
+18:48:59 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+19:44:49 INFO  : Disconnected from the channel tcfchan#10.
+19:44:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+19:44:49 INFO  : 'fpga -state' command is executed.
+19:44:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:44:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+19:45:01 INFO  : FPGA configured successfully with bitstream "E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ANN_SW_design_wrapper.bit"
+19:45:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+19:45:04 INFO  : 'fpga -state' command is executed.
+19:45:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:45:04 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:45:04 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+19:45:04 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+19:45:05 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+19:45:05 INFO  : 'stop' command is executed.
+19:45:05 INFO  : 'ps7_init' command is executed.
+19:45:05 INFO  : 'ps7_post_config' command is executed.
+19:45:06 INFO  : 'con' command is executed.
+19:45:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:45:06 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+19:45:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:45:07 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:45:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+19:45:07 INFO  : Memory regions updated for context APU
+19:45:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:45:08 INFO  : 'con' command is executed.
+19:45:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+19:46:16 INFO  : Disconnected from the channel tcfchan#11.
+19:46:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279654192A" && level==0} -index 1' command is executed.
+19:46:16 INFO  : 'fpga -state' command is executed.
+19:46:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:46:17 INFO  : Sourcing of 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:46:17 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+19:46:19 INFO  : Hardware design information is loaded from 'E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf'.
+19:46:19 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0' command is executed.
+19:46:19 INFO  : 'stop' command is executed.
+19:46:20 INFO  : 'ps7_init' command is executed.
+19:46:20 INFO  : 'ps7_post_config' command is executed.
+19:46:20 INFO  : 'con' command is executed.
+19:46:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:46:21 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+19:46:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:46:22 INFO  : The application 'E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:46:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+loadhw E:/ANN_project/ANN_project.sdk/ANN_SW_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+stop
+ps7_init
+ps7_post_config
+con
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+dow E:/ANN_project/ANN_project.sdk/ANN_SW_Back-Propagation/Debug/debug_ANN_SW_Back-Propagation.elf
+----------------End of Script----------------
+
+19:46:22 INFO  : Memory regions updated for context APU
+19:46:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:46:22 INFO  : 'con' command is executed.
+19:46:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279654192A"} -index 0
+con
+----------------End of Script----------------
+
+00:13:28 WARN  : Unexpected exception occurred.
+java.io.IOException: Command [C 893 xsdb eval "disconnect tcfchan#12"] aborted
+	at org.eclipse.tcf.core.AbstractChannel$9.run(AbstractChannel.java:753)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:95)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:284)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at java.io.FilterInputStream.read(FilterInputStream.java:107)
+	at org.eclipse.tcf.core.ChannelTCP.get(ChannelTCP.java:162)
+	at org.eclipse.tcf.core.StreamChannel.read(StreamChannel.java:84)
+	at org.eclipse.tcf.core.AbstractChannel$1.run(AbstractChannel.java:254)
+21:09:48 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+21:09:50 INFO  : XSDB server has started successfully.
+19:55:19 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+19:55:21 INFO  : XSDB server has started successfully.

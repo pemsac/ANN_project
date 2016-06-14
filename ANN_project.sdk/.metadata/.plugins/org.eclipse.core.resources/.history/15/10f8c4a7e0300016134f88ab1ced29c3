@@ -1,0 +1,19 @@
+/*
+ * jajajaja.h
+ *
+ *  Created on: Jun 12, 2016
+ *      Author: pemsa
+ */
+
+#ifndef JAJAJAJA_H_
+#define JAJAJAJA_H_
+
+class jajajaja
+{
+public:
+  jajajaja ();
+  virtual
+  ~jajajaja ();
+};
+
+#endif /* JAJAJAJA_H_ */

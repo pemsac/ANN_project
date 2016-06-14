@@ -1,0 +1,179 @@
+
+#include "BackProp.h"
+// NeuralNet.cpp : Defines the entry point for the console application.
+//
+
+#include "backprop.h"
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+  /*
+   * Local declarations.
+   */
+  XGpio led;
+  FRESULT fStatus;
+  FATFS fileSystem;
+  FIL fileNt,fileSt,fileVt,fileFt,fileQt,fileN,fileS,fileV,fileF,fileQ;
+  int status, i, maxValuePos, fOffset=-1, offset=0, fBytesRead, beatsCounter=0,
+      fSizeNt,fSizeSt,fSizeVt,fSizeFt,fSizeQt,fSizeN,fSizeS,fSizeV,fSizeF,fSizeQ;
+  u8 *beatBuffer;
+  double maxValue, beatData[NUM_DATA_BEAT], result[NUM_DATA_RESULT];
+  emxArray_real_T *inputs, *outputs;
+
+  /*
+     * LED's GPIO Initialization
+     */
+    status = XGpio_Initialize(&led, LED_DEVICE_ID);
+    if (status != XST_SUCCESS) {
+        return XST_FAILURE;
+    }
+    XGpio_SetDataDirection(&led, LED_CHANNEL, LED_DIRECTION_MASK);
+    XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_READY_STATE);
+
+    /*
+     * Introduction
+     */
+    xil_printf("\r\nHEARTBEAT CLASSIFIER\r\n\r\n");
+    xil_printf("Opening and reading %s%s....\r\n", FS_PATH, INPUT_DIR);
+
+
+  /*
+   * Initialize the memory file system
+   */
+  fStatus = f_mount(&fileSystem, FS_PATH, 0);
+  if (fStatus != FR_OK) {
+      xil_printf("ERROR: Failed mounting SD memory on %s.\r\n",FS_PATH);
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  /*
+   * Open the data file
+   */
+  fStatus = f_open(&fileNt, "Ntraining.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Ntraining.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileSt, "Straining.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Straining.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileVt, "Vtraining.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Vtraining.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileFt, "Ftraining.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Ftraining.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileQt, "Qtraining.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Qtraining.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileN, "Ntest.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Ntest.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileS, "Stest.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Stest.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileQ, "Qtest.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Qtest.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileF, "Ftest.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Ftest.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+  fStatus = f_open(&fileV, "Vtest.txt" , FA_READ);
+  if (fStatus) {
+      xil_printf("ERROR: Failed opening Vtest.txt File not found.\r\n");
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+
+  fSizeNt = file.fsize;
+  u8 fBufferNt[fSize];
+  f_lseek(&fileNt, 0);
+
+  fStatus = f_read(&file, (void*)fBuffer, fSize, &fBytesRead);
+  if (fStatus || fSize!=fBytesRead) {
+      xil_printf(
+	  "ERROR: Failed reading file %s%s. %i Bytes have been read.\r\n",
+	  FS_PATH,
+	  INPUT_DIR,
+	  fBytesRead);
+      XGpio_DiscreteWrite(&led,LED_CHANNEL,LED_FILE_ERROR_STATE);
+      return XST_FAILURE;
+  }
+
+  // defining a net with 4 layers having 3,3,3, and 1 neuron respectively,
+  // the first layer is input layer i.e. simply holder for the input parameters
+  // and has to be the same size as the no of input parameters, in out example 3
+  int numLayers = 3, lSz[4] = {28,35,5};
+
+
+  // Learing rate - beta
+  // momentum - alpha
+  // Threshhold - thresh (value of target mse, training stops once it is achieved)
+  double beta = 0.3, alpha = 0.1, Thresh =  0.00001;
+
+
+  // maximum no of iterations during training
+  int num_iter = 2000000, i;
+
+  // Creating the net
+  CBackProp *bp = new CBackProp(numLayers, lSz, beta, alpha);
+
+  cout<<"Now training the network...."<<endl;
+  for ( i=0; i<num_iter ; i++)
+    {
+
+      bp->bpgt(data[i%8], &data[i%8][3]);
+
+      if( bp->mse(&data[i%8][3]) < Thresh) {
+	  cout<<"Network Trained. Threshold value achieved in "<<i<<" iterations."<<endl;
+	  cout<<"MSE:  "<<bp->mse(&data[i%8][3])<<endl;
+	  break;
+      }
+      if ( i%(num_iter/10) == 0 )
+	cout<<"MSE:  "<<bp->mse(&data[i%8][3])<<" ... Training..."<<endl;
+
+    }
+
+  if ( i == num_iter )
+    cout<<i<<"iterations completed... MSE: "<<bp->mse(&data[(i-1)%8][3])<<endl;
+
+  cout<<"Now using the trained network to make predctions on test data...."<<endl;
+  for ( i = 0 ; i < 8 ; i++ )
+    {
+      bp->ffwd(testData[i]);
+      cout<<testData[i][0]<<"  "<<testData[i][1]<<"  "<<testData[i][2]<<"  "<<bp->Out(0)<<endl;
+    }
+
+  return 0;
+}
+
+
+
