@@ -1,0 +1,19 @@
+/*
+ * Empty C++ Application
+ */
+
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+  ifstream file;
+  double num1, num2;
+  u8 *string;
+  file.open("test.txt");
+  cout << "Hello world" << endl;
+  file >> num1 >> num2 >> string;
+
+}

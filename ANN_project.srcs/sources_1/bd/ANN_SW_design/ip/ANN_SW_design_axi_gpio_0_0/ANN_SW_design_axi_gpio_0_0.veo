@@ -74,7 +74,8 @@ ANN_SW_design_axi_gpio_0_0 your_instance_name (
   .s_axi_rresp(s_axi_rresp),      // output wire [1 : 0] s_axi_rresp
   .s_axi_rvalid(s_axi_rvalid),    // output wire s_axi_rvalid
   .s_axi_rready(s_axi_rready),    // input wire s_axi_rready
-  .gpio_io_o(gpio_io_o)          // output wire [3 : 0] gpio_io_o
+  .gpio_io_o(gpio_io_o),          // output wire [3 : 0] gpio_io_o
+  .gpio2_io_i(gpio2_io_i)        // input wire [3 : 0] gpio2_io_i
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

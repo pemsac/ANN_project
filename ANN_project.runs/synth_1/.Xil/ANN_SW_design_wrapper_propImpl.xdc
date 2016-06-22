@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:e:/ANN_project/ANN_project.srcs/sources_1/bd/ANN_SW_design/ip/ANN_SW_design_processing_system7_0_0/ANN_SW_design_processing_system7_0_0.xdc rfile:../../../ANN_project.srcs/sources_1/bd/ANN_SW_design/ip/ANN_SW_design_processing_system7_0_0/ANN_SW_design_processing_system7_0_0.xdc id:1 order:EARLY scoped_inst:ANN_SW_design_i/processing_system7_0/inst} [current_design]
+set_property SRC_FILE_INFO {cfile:e:/ANN_project/ANN_project.srcs/sources_1/bd/ANN_SW_design/ip/ANN_SW_design_processing_system7_0_1/ANN_SW_design_processing_system7_0_1.xdc rfile:../../../ANN_project.srcs/sources_1/bd/ANN_SW_design/ip/ANN_SW_design_processing_system7_0_1/ANN_SW_design_processing_system7_0_1.xdc id:1 order:EARLY scoped_inst:ANN_SW_design_i/processing_system7_0/inst} [current_design]
 set_property src_info {type:SCOPED_XDC file:1 line:21 export:INPUT save:INPUT read:READ} [current_design]
 set_input_jitter clk_fpga_0 0.3
 set_property src_info {type:SCOPED_XDC file:1 line:31 export:INPUT save:INPUT read:READ} [current_design]

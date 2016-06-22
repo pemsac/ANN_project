@@ -63,7 +63,7 @@
  * @return      XST_FAILURE failed execution
  *              XST_SUCCESS successful execution
  */
-int main(int argc , char * argv []){
+int main(void){
   /*
    * Local declarations.
    */

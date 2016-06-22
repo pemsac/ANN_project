@@ -1,0 +1,27 @@
+/*
+ * Empty C++ Application
+ */
+
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+  ifstream file;
+  double num1=0 , num2=0;
+
+  file.open("test.txt");
+
+  if (file.is_open())
+    cout << "error" << endl;
+  else
+    {
+      cout << "Hello world" << endl;
+      file >> num1 >> num2;
+      cout << num1 << num2 << endl;
+    }
+
+  return 0;
+}

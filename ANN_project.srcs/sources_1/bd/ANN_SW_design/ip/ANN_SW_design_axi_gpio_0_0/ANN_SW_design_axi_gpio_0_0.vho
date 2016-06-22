@@ -73,7 +73,8 @@ COMPONENT ANN_SW_design_axi_gpio_0_0
     s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_rvalid : OUT STD_LOGIC;
     s_axi_rready : IN STD_LOGIC;
-    gpio_io_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    gpio_io_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    gpio2_io_i : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -103,7 +104,8 @@ your_instance_name : ANN_SW_design_axi_gpio_0_0
     s_axi_rresp => s_axi_rresp,
     s_axi_rvalid => s_axi_rvalid,
     s_axi_rready => s_axi_rready,
-    gpio_io_o => gpio_io_o
+    gpio_io_o => gpio_io_o,
+    gpio2_io_i => gpio2_io_i
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 

@@ -1,0 +1,58 @@
+/**
+ *
+ * Carlos III University of Madrid.
+ *
+ * Master Final Thesis: Heartbeat classifier based on ANN (Artificial Neural
+ * Network).
+ *
+ * Author: Pedro Marcos Solórzano
+ * Tutor: Luis Mengibar Pozo (Tutor)
+ *
+ *
+ * Main header file
+ *
+ *
+ */
+
+#ifndef MAIN_H_
+#define MAIN_H_
+
+/*
+ * Includes
+ */
+#include "Training.h"
+#include <iostream>
+#include "xgpio.h"
+#include "ff.h"
+#include "xparameters.h"
+/*
+ * Name space
+ */
+using namespace std;
+
+/*
+ * LED's GPIO Configuration
+ */
+#define LED_DEVICE_ID           XPAR_AXI_GPIO_0_DEVICE_ID
+#define LED_CHANNEL             1
+#define LED_DIRECTION_MASK      0x01
+/*
+ * System state LED codes
+ */
+#define LED_ERROR_STATE         0b1111
+#define LED_READY_STATE         0b0001
+#define LED_FILE_ERROR_STATE    0b0101
+#define LED_SUCCESS_STATE       0b0011
+/*
+ * File System configuration
+ * Size in bytes.
+ */
+#define FS_PATH			"0:/"
+#define INPUT_DIR		"testQ.txt"
+
+/*
+ * Function declaration
+ */
+int main(void);
+
+#endif /* MAIN_H_ */

@@ -1,0 +1,79 @@
+/**
+ *
+ * Carlos III University of Madrid.
+ *
+ * Master Final Thesis: Heartbeat classifier based on ANN (Artificial Neural
+ * Network).
+ *
+ * Author: Pedro Marcos Solórzano
+ * Tutor: Luis Mengibar Pozo (Tutor)
+ *
+ *
+ * Main source file
+ *
+ *
+ */
+
+#include "main.hpp"
+
+int main(void){
+  /*
+   * Local declarations.
+   */
+  XGpio gpio;
+  FRESULT fStatus;
+  FATFS fileSystem;
+  FIL fWeight, fTrain, fTest, fInput;
+  int status, mode;
+
+  /*
+   * LED's GPIO Initialization
+   */
+  status = XGpio_Initialize(&gpio, GPIO_DEVICE_ID);
+  if (status != XST_SUCCESS) {
+      cerr << "ERROR: GPIO failure." << endl;
+      return XST_FAILURE;
+  }
+  XGpio_SetDataDirection(&gpio, LED_CHANNEL, LED_DIRECTION_MASK);
+  XGpio_DiscreteWrite(&gpio, LED_CHANNEL, LED_READY_STATE);
+
+  /*
+   * Get working mode
+   */
+  mode = XGpio_DiscreteRead(&gpio, SW_CHANNEL)%2;
+
+  /*
+   * Introduction
+   */
+  cout << endl<<"ARTIFITIAL NEURONAL NETWORK"<<endl;
+  cout << mode = 1 ? "Back-propagation training for feedforward ANN" : "Feedforward ANN"<<endl;
+
+  /*
+   * Initialize the memory file system
+   */
+  fStatus = f_mount(&fileSystem, FS_PATH, 0);
+  if (fStatus != FR_OK) {
+      cerr<<"ERROR: impossible to mount SD memory on "<<FS_PATH<<endl;
+      XGpio_DiscreteWrite(&gpio,LED_CHANNEL,LED_ERROR_STATE);
+      return XST_FAILURE;
+  }
+
+  /*
+   * Open Training & test file whether it's required
+   */
+  if (mode==1){
+      fStatus = f_open(&fTrain, TRAINING_FILE_DIR , FA_READ);
+      if (fStatus) {
+	  xil_printf("ERROR: Training file %s%s not found.\r\n",FS_PATH,INPUT_DIR);
+	  XGpio_DiscreteWrite(&gpio,LED_CHANNEL,LED_FILE_ERROR_STATE);
+	  return XST_FAILURE;
+      }
+      fStatus = f_open(&fTest, TEST_FILE_DIR , FA_READ);
+      if (fStatus) {
+	  xil_printf("ERROR: Training file %s%s not found.\r\n",FS_PATH,INPUT_DIR);
+	  XGpio_DiscreteWrite(&gpio,LED_CHANNEL,LED_FILE_ERROR_STATE);
+	  return XST_FAILURE;
+      }
+  }
+  return 0;
+}

@@ -50,8 +50,9 @@ Temporary Items
 *.log
 
 #For Vivado
-.run
-.cache
+*.run
+*.cache
+*.jou
 
 #For Eclipse
 .metadata
@@ -59,4 +60,3 @@ Temporary Items
 .project
 Release
 Debug
-*.jou

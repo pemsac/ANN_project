@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
+# 
+# Start of session at: Mon Jun 13 00:13:29 2016
+# Process ID: 10708
+# Current directory: E:/ANN_project/ANN_project.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: E:/ANN_project/ANN_project.sdk/webtalk/webtalk.log
+# Journal file: E:/ANN_project/ANN_project.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl
