@@ -48,3 +48,15 @@ Temporary Items
 
 #Log extensions
 *.log
+
+#For Vivado
+.run
+.cache
+
+#For Eclipse
+.metadata
+.cproject
+.project
+Release
+Debug
+*.jou
