@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="10" Path="E:/ANN_project/ANN_project.xpr">
+<Project Version="7" Minor="10" Path="E:/TFM/ANN_project/ANN_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="00abf58956c345428172f5a2f88bcd35"/>
@@ -34,16 +34,16 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hdl/ANN_SW_design.vhd"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_axi_gpio_0_0/ANN_SW_design_axi_gpio_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design.hwh"/>
         <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hdl/ANN_SW_design.hwdef"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design_bd.tcl"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_1/ANN_SW_design_processing_system7_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_rst_processing_system7_0_100M_1/ANN_SW_design_rst_processing_system7_0_100M_1.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_auto_pc_1/ANN_SW_design_auto_pc_1.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_axi_periph_1/ANN_SW_design_processing_system7_0_axi_periph_1.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design.hwh"/>
         <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ANN_SW_design_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_1/ANN_SW_design_processing_system7_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_axi_gpio_0_0/ANN_SW_design_axi_gpio_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_rst_processing_system7_0_100M_1/ANN_SW_design_rst_processing_system7_0_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_axi_periph_1/ANN_SW_design_processing_system7_0_axi_periph_1.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hdl/ANN_SW_design.vhd"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_auto_pc_1/ANN_SW_design_auto_pc_1.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/ANN_SW_design/hdl/ANN_SW_design_wrapper.vhd">
         <FileInfo>

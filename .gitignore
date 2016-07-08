@@ -46,17 +46,19 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#Log extensions
+#logs
 *.log
-
-#For Vivado
-*.run
-*.cache
 *.jou
 
-#For Eclipse
-.metadata
-.cproject
+# Eclipse 
+Debug*
+Release*
+bin/
+.metadata/
+.settings/
 .project
-Release
-Debug
+.cproject
+
+#Vivado
+*.cache
+*.runs
