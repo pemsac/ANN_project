@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="ANN.cpp" path="E:\TFM\ANN_project\ANN_project.hls\ANN_complete\files\ANN.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="testbench.cpp" path="E:\TFM\ANN_project\ANN_project.hls\ANN_complete\files\testbench.cpp"/>
+    <originFiles name="Training.cpp" path="E:\TFM\ANN_project\ANN_project.hls\ANN_complete\files\Training.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

@@ -1,0 +1,5 @@
+sigmoid_dadd_64ns_64ns_64_5_full_dsp
+sigmoid_ddiv_64ns_64ns_64_31
+sigmoid_dexp_64ns_64ns_64_18_full_dsp
+sigmoid_AXILiteS_s_axi
+sigmoid

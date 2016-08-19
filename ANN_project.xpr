@@ -19,6 +19,7 @@
     <Option Name="BoardPart" Val="digilentinc.com:zybo:part0:1.0"/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/ANN_project.IPs"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
     <Option Name="IPUserFilesDir" Val="$PPRDIR/ANN_project.ip_user_files"/>
@@ -35,19 +36,27 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
         <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hdl/ANN_SW_design.hwdef"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design_bd.tcl"/>
         <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design.hwh"/>
         <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ANN_SW_design_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_1/ANN_SW_design_processing_system7_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_axi_gpio_0_0/ANN_SW_design_axi_gpio_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_rst_processing_system7_0_100M_1/ANN_SW_design_rst_processing_system7_0_100M_1.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_axi_periph_1/ANN_SW_design_processing_system7_0_axi_periph_1.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hdl/ANN_SW_design.vhd"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design_bd.tcl"/>
         <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_auto_pc_1/ANN_SW_design_auto_pc_1.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_1/ANN_SW_design_processing_system7_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hdl/ANN_SW_design.vhd"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_rst_processing_system7_0_100M_1/ANN_SW_design_rst_processing_system7_0_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_axi_gpio_0_0/ANN_SW_design_axi_gpio_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_axi_periph_1/ANN_SW_design_processing_system7_0_axi_periph_1.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/ANN_SW_design/hdl/ANN_SW_design_wrapper.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/sigmoid_neuron_subsystem_design/sigmoid_neuron_subsystem_design.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -70,6 +79,7 @@
         <Option Name="TopModule" Val="ANN_SW_design_wrapper"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="SimMode" Val="post-implementation"/>
         <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
