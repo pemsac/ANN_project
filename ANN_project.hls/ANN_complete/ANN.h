@@ -33,13 +33,16 @@
  */
 #include <cmath>
 
+
+
 /*
  *
  */
-void ANN(const int config[MAX_NUM_LAYER+2],
-	const double WandB[MAX_NUM_LAYER][MAX_SIZE_LAYER][MAX_SIZE_LAYER+1],
-	double uOut[MAX_NUM_LAYER][MAX_SIZE_LAYER],
-	const double netIn[MAX_SIZE_LAYER],
-	int netOut[MAX_SIZE_LAYER]);
+void feedforward(const int numLayer,
+		 const int layerSize[MAX_NUM_LAYER],
+		 const double WandB[MAX_NUM_LAYER][MAX_SIZE_LAYER][MAX_SIZE_LAYER+1],
+		 double uOut[MAX_NUM_LAYER][MAX_SIZE_LAYER],
+		 const double netIn[MAX_SIZE_LAYER],
+		 bool netOut[MAX_SIZE_LAYER]);
 
 #endif

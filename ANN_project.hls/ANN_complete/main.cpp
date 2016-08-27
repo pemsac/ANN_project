@@ -22,13 +22,12 @@
 
 
 
-int main(int argc, char *argv[])
+int main(void)
 {
   int i,j, k, numLayer, *layerSize, numRowTrain, numRowVal, numRowTest, numRow,
-  ite, maxIte, minIte, *netOut, numOut, *goodOut, *badOut,
-  config[MAX_NUM_LAYER+2];
+  ite, maxIte, minIte, numOut, numIn, *goodOut, *badOut, goodOutTotal;
   double **dIn, **dTarget, mcee, minMcee, lastMcee, thMcee, *maxIn, *minIn;
-  bool bad;
+  bool bad, *netOut;
   fstream fAnn, fTarget, fIn, fTrain;
 
 
@@ -49,8 +48,9 @@ int main(int argc, char *argv[])
   }
   catch (fstream::failure &e)
   {
+      printf("\r\n*****TEST BENCH FAILED!!*****\r\n");
       printf("\r\nError opening some file:\r\n%s\r\n",e.what());
-      return 1;
+      return(1);
   }
 
 
@@ -80,14 +80,15 @@ int main(int argc, char *argv[])
 	}
 
       /*
-       * Get number of network outputs
+       * Get number of network outputs & inputs
        */
       numOut = layerSize[numLayer-1];
+      numIn = layerSize[0];
 
       /*
        * Allocate Binary Network Output Array and initialize it to 0
        */
-      netOut = new int[numOut]();
+      netOut = new bool[numOut]();
 
       /*
        * Allocate and initialize to 0 statistical variables of ANN test
@@ -98,9 +99,9 @@ int main(int argc, char *argv[])
       /*
        * Allocate and initialize input coding variables
        */
-      maxIn = new double[layerSize[0]];
-      minIn = new double[layerSize[0]];
-      for(i=0; i<layerSize[0]; ++i)
+      maxIn = new double[numIn];
+      minIn = new double[numIn];
+      for(i=0; i<numIn; ++i)
 	{
 	  maxIn[i] = CODEC_MIN;
 	  minIn[i] = CODEC_MAX;
@@ -113,14 +114,16 @@ int main(int argc, char *argv[])
   }
   catch(fstream::failure &e)
   {
+      printf("\r\n*****TEST BENCH FAILED!!*****\r\n");
       printf("\r\nError reading ANN configuration file:\r\n%s\r\n",e.what());
-      return 1;
+      return(1);
   }
   catch (exception &e)
   {
+      printf("\r\n*****TEST BENCH FAILED!!*****\r\n");
       printf("\r\nError setting up ANN:\r\n%s\r\nAre all parameters correct?\r\n",
 	     e.what());
-      return 1;
+      return(1);
   }
 
 
@@ -150,8 +153,9 @@ int main(int argc, char *argv[])
   }
   catch (fstream::failure &e)
   {
+      printf("\r\n*****TEST BENCH FAILED!!*****\r\n");
       printf("\r\nError reading training configuration file:\r\n%s\r\n",e.what());
-      return 1;
+      return(1);
   }
 
 
@@ -171,7 +175,7 @@ int main(int argc, char *argv[])
       dIn = new double*[numRow];
       for(i=0; i<numRow; ++i)
 	{
-	  dIn[i] = new double[layerSize[0]];
+	  dIn[i] = new double[numIn];
 	}
 
       /*
@@ -179,7 +183,7 @@ int main(int argc, char *argv[])
        */
       for(i=0; i<numRow; ++i)
 	{
-	  for(j=0; j<layerSize[0]; ++j)
+	  for(j=0; j<numIn; ++j)
 	    {
 	      fIn>>dIn[i][j];
 
@@ -201,8 +205,9 @@ int main(int argc, char *argv[])
   }
   catch (exception &e)
   {
+      printf("\r\n*****TEST BENCH FAILED!!*****\r\n");
       printf("\r\nError reading Input data file:\r\n%s\r\n",e.what());
-      return 1;
+      return(1);
   }
 
 
@@ -242,8 +247,9 @@ int main(int argc, char *argv[])
   }
   catch (exception &e)
   {
+      printf("\r\n*****TEST BENCH FAILED!!*****\r\n");
       printf("\r\nError reading Target configuration file:\r\n%s\r\n",e.what());
-      return 1;
+      return(1);
   }
 
   printf("DONE!\r\n");
@@ -255,7 +261,7 @@ int main(int argc, char *argv[])
    * Check documentation for more information
    */
   printf("Coding input data...");
-  for(i=0; i<layerSize[0]; ++i)
+  for(i=0; i<numIn; ++i)
     {
       /*
        * Calculate Slope
@@ -290,6 +296,11 @@ int main(int argc, char *argv[])
   printf("Training a new feed-forward Neural Network...");
 
   Training trainIns(numLayer, layerSize);
+
+  /*
+   * layerSize isn't still useful
+   */
+  delete[] layerSize;
 
   /*
    * TRAINING PROCESS:
@@ -327,9 +338,10 @@ int main(int argc, char *argv[])
        * Validate the training. Calculate the Mean Cross Entropy Error (MCEE)
        * with some validation samples.
        */
-      for(i=numRowTrain, mcee=0; i<numRowTrain+numRowVal; ++i)
+      mcee=0;
+      for(i=numRowTrain; i<numRowTrain+numRowVal; ++i)
 	{
-	  trainIns.uOutUpdate(dIn[i]);
+	  trainIns.test_feedforward(dIn[i], netOut);
 	  mcee+=trainIns.CEE(dTarget[i]);
 	}
       mcee /= numRowVal;
@@ -381,8 +393,11 @@ int main(int argc, char *argv[])
    * TESTING PROCESS
    */
   printf("Testing ANN...");
-  config[0]=0;
-  for(i=numRowTrain+numRowVal, ite=0, mcee=0, k=0; i<numRow; ++i)
+  ite=0;
+  mcee=0;
+  k=0;
+  goodOutTotal=0;
+  for(i=numRowTrain+numRowVal; i<numRow; ++i)
     {
       /*
        * iteration counter
@@ -392,9 +407,10 @@ int main(int argc, char *argv[])
       /*
        * Feed-forward sample
        */
-      ANN(config, NULL, NULL, dIn[i], netOut);
+      trainIns.test_feedforward(dIn[i], netOut);
 
-      for(j=0, bad=false; j<numOut; ++j)
+      bad=false;
+      for(j=0; j<numOut; ++j)
 	{
 	  if(netOut[j]!=dTarget[i][j])
 	    {
@@ -411,23 +427,27 @@ int main(int argc, char *argv[])
        */
       if(bad)
 	{
-	  badOut[k]++;
+	  ++badOut[k];
 	}
       else
 	{
-	  goodOut[k]++;
+	  ++goodOut[k];
+	  ++goodOutTotal;
 	}
     }
 
   /*
    * Print the test results
    */
-  printf("DONE!\r\n\r\n");
+  printf("DONE!\r\n\r\nResults:");
   for(i=0; i<numOut; ++i)
     {
-      printf("Results of output No %i => Good = %i  Bad = %i\r\n",i,goodOut[i],badOut[i]);
+      printf("Results of output No %i => Good = %i  Bad = %i (%i)\r\n", i,
+	     goodOut[i], badOut[i], goodOut[i]*100/(goodOut[i]+badOut[i]));
     }
+  printf("Classification accuracy = %i\r\n", goodOutTotal*100/numRowTest);
   printf("\r\n");
+
   /*
    * END
    *
@@ -446,7 +466,18 @@ int main(int argc, char *argv[])
   delete[] dIn;
   delete[] dTarget;
   printf("DONE!\r\n");
-  return 0;
+
+  /*
+   * Test result check
+   */
+  if(goodOutTotal*100/numRowTest < TEST_ACC)
+    {
+      printf("\r\n*****TEST BENCH FAILED!!*****\r\n");
+      printf("Minimum accuracy percentage not achieved\r\n");
+      return(1);
+    }
+  printf("\r\n*****TEST BENCH PASSED!!*****\r\n");
+  return(0);
 }
 
 

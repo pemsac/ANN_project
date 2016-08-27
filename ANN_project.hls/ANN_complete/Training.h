@@ -64,10 +64,14 @@ private:
    * _randWandB:	Random Weights & Bias Matrix to initialize a new ANN base
    */
   double _learnRate, _momentum, ***_delta, **_grad,
+
+  /*
+   * ann
+   */
   _WandB[MAX_NUM_LAYER][MAX_SIZE_LAYER][MAX_SIZE_LAYER+1],
   _uOut[MAX_NUM_LAYER][MAX_SIZE_LAYER];
 
-  int _numLayer, *_layerSize;
+  int _numLayer, _layerSize[MAX_NUM_LAYER];
 
 
 public:
@@ -112,7 +116,7 @@ public:
    */
   void updateLRandM(double currMCEE, double lastMCEE);
 
-  void uOutUpdate(double *in);
+  void test_feedforward(double *in, bool *out);
 };
 
 #endif

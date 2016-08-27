@@ -45,8 +45,13 @@
 #define CODEC_MAX		1
 
 /*
+ * TestBench minimal accuracy
+ */
+#define TEST_ACC		100
+
+/*
  * Function declaration
  */
-int main(int argc, char *argv[]);
+int main(void);
 
 #endif

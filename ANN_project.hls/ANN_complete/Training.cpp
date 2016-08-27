@@ -26,18 +26,16 @@
 
 Training::Training(int numLayer, int *layerSize)
 {
-  int i, j, k, config[MAX_NUM_LAYER+2];
+  int i, j, k;
 
   /*.
    * Number of Layers data copy
    */
-  _numLayer=numLayer;
+  _numLayer = numLayer;
 
   /*
    * Layers Sizes Array memory allocation and data copy
    */
-  _layerSize=new int[numLayer];
-
   for(i=0; i<numLayer; ++i)
     {
       _layerSize[i]=layerSize[i];
@@ -58,17 +56,6 @@ Training::Training(int numLayer, int *layerSize)
 	    }
 	}
     }
-
-  /*
-   * IP
-   */
-  config[0]=1;
-  config[1]=numLayer;
-  for(i=0; i<numLayer; ++i)
-    {
-      config[i+2]=_layerSize[i];
-    }
-  ANN(config, _WandB, NULL, NULL, NULL);
 
   /*
    *
@@ -139,32 +126,31 @@ Training::~Training ()
       delete[] _grad[i];
     }
   delete[] _grad;
-
-  /*
-   * Layers Sizes Array memory freeing
-   */
-  delete[] _layerSize;
 }
 
 
 
 void Training::backpropagation(double *in, double *target)
 {
-  double sum;
-  int i, j, k, config[MAX_NUM_LAYER+2];
+  double sum, netIn[MAX_NUM_LAYER];
+  int i, j, k;
+  bool netOut[MAX_NUM_LAYER];
 
   /*
    * 1º step: Update all neurons outputs for an input applying feed-forward
    */
-  config[0]=2;
-  ANN(config, NULL, _uOut, in, NULL);
+  for(i=0; i<_layerSize[0]; ++i)
+    {
+      netIn[i] = in[i];
+    }
+  feedforward(_numLayer, _layerSize, _WandB, _uOut, netIn, netOut);
 
   /*
    * 2º step: Calculate error gradient of each neuron applying back-propagation
    *
    * Gradients of the output layer:
    */
-  for(i=0;i<_layerSize[_numLayer-1];++i)
+  for(i=0; i<_layerSize[_numLayer-1]; ++i)
     {
       _grad[_numLayer-1][i]=(target[i]-_uOut[_numLayer-1][i]);
     }
@@ -172,12 +158,12 @@ void Training::backpropagation(double *in, double *target)
   /*
    * Gradients of hidden layers
    */
-  for(i=_numLayer-2;i>0;--i)
+  for(i=_numLayer-2; i>0; --i)
     {
-      for( j=0;j<_layerSize[i];++j)
+      for(j=0; j<_layerSize[i]; ++j)
 	{
-
-	  for(k=0, sum=0.0; k<_layerSize[i+1];++k)
+	  sum=0.0;
+	  for(k=0; k<_layerSize[i+1]; ++k)
 	    {
 	      sum+=_grad[i+1][k]*_WandB[i+1][k][j];
 	    }
@@ -191,9 +177,9 @@ void Training::backpropagation(double *in, double *target)
    */
   for(i=1; i<_numLayer && _momentum>0; ++i)
     {
-      for(j=0;j<_layerSize[i];++j)
+      for(j=0; j<_layerSize[i]; ++j)
 	{
-	  for(k=0;k<_layerSize[i-1];++k)
+	  for(k=0; k<_layerSize[i-1]; ++k)
 	    {
 	      /*
 	       * Calculate momentum from last delta and apply it.
@@ -210,11 +196,11 @@ void Training::backpropagation(double *in, double *target)
   /*
    * 4º and 5 step: Calculate new deltas from gradients and update weights
    */
-  for(i=1;i<_numLayer;++i)
+  for(i=1; i<_numLayer; ++i)
     {
-      for(j=0;j<_layerSize[i];++j)
+      for(j=0; j<_layerSize[i]; ++j)
 	{
-	  for(k=0;k<_layerSize[i-1];++k)
+	  for(k=0; k<_layerSize[i-1]; ++k)
 	    {
 	      /*
 	       * Calculate delta and apply it
@@ -229,8 +215,6 @@ void Training::backpropagation(double *in, double *target)
 	  _WandB[i][j][_layerSize[i-1]]+=_delta[i][j][_layerSize[i-1]];
 	}
     }
-  config[0]=3;
-  ANN(config, _WandB, NULL, NULL, NULL);
 }
 
 
@@ -283,10 +267,20 @@ void Training::updateLRandM(double currMCEE, double lastMCEE)
     }
 }
 
-void Training::uOutUpdate(double *in)
+void Training::test_feedforward(double *in, bool *out)
 {
-  int config[MAX_NUM_LAYER+2];
+  int i;
+  bool netOut[MAX_NUM_LAYER];
+  double netIn[MAX_NUM_LAYER];
 
-  config[0]=2;
-  ANN(config, NULL, _uOut, in, NULL);
+  for(i=0; i<_layerSize[0]; ++i)
+    {
+      netIn[i] = in[i];
+    }
+  feedforward(_numLayer, _layerSize, _WandB, _uOut, netIn, netOut);
+
+  for(i=0; i<_layerSize[_numLayer-1]; ++i)
+    {
+      out[i] = netOut[i];
+    }
 }

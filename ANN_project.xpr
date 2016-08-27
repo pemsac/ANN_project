@@ -19,7 +19,6 @@
     <Option Name="BoardPart" Val="digilentinc.com:zybo:part0:1.0"/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/ANN_project.IPs"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
     <Option Name="IPUserFilesDir" Val="$PPRDIR/ANN_project.ip_user_files"/>
@@ -29,30 +28,28 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/bd/ANN_SW_design/ANN_SW_design.bd">
+      <File Path="$PSRCDIR/sources_1/bd/design_SW_standalone/design_SW_standalone.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_processing_system7_0_0/design_SW_standalone_processing_system7_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hdl/design_SW_standalone.vhd"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="design_SW_standalone_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hdl/design_SW_standalone.hwdef"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hw_handoff/design_SW_standalone_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hw_handoff/design_SW_standalone.hwh"/>
       </File>
-      <File Path="$PSRCDIR/sources_1/bd/ANN_SW_design/hdl/ANN_SW_design_wrapper.vhd">
+      <File Path="$PSRCDIR/sources_1/bd/design_SW_standalone/hdl/design_SW_standalone_wrapper.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/bd/sigmoid_neuron_subsystem_design/sigmoid_neuron_subsystem_design.bd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="ANN_SW_design_wrapper"/>
+        <Option Name="TopModule" Val="design_SW_standalone_wrapper"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -66,7 +63,7 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="ANN_SW_design_wrapper"/>
+        <Option Name="TopModule" Val="design_SW_standalone_wrapper"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="SimMode" Val="post-implementation"/>
