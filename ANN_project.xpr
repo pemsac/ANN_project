@@ -36,10 +36,14 @@
         </FileInfo>
         <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_processing_system7_0_0/design_SW_standalone_processing_system7_0_0.xci"/>
         <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hdl/design_SW_standalone.vhd"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_processing_system7_0_axi_periph_0/design_SW_standalone_processing_system7_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_rst_processing_system7_0_100M_0/design_SW_standalone_rst_processing_system7_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_auto_pc_0/design_SW_standalone_auto_pc_0.xci"/>
         <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="design_SW_standalone_ooc.xdc"/>
         <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hdl/design_SW_standalone.hwdef"/>
-        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hw_handoff/design_SW_standalone_bd.tcl"/>
         <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hw_handoff/design_SW_standalone.hwh"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hw_handoff/design_SW_standalone_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_axi_gpio_0_0/design_SW_standalone_axi_gpio_0_0.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/design_SW_standalone/hdl/design_SW_standalone_wrapper.vhd">
         <FileInfo>

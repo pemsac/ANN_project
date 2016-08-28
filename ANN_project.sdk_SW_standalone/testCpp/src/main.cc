@@ -2,25 +2,23 @@
  * Empty C++ Application
  */
 #include <iostream>
-#include <ctime>
-#include <stdio.h>
-#include <xil_printf.h>
+#include "xtime_l.h"
 using namespace std;
 int main()
 {
-	clock_t time1, time2;
-	int count=1;
+  XTime time1, time2;
+  int count=1;
 
-	time1 = clock();
-	while(1)
+  XTime_GetTime(&time1);
+  while(1)
+    {
+      XTime_GetTime(&time2);
+      if((time2-time1)>(COUNTS_PER_SECOND*count))
 	{
-		time2 = clock();
-		if(time2-time1>CLOCKS_PER_SEC*count)
-		{
-			cout<<count<<" segundos"<<endl;
-			count++;
-		}
+	  cout<<count<<" segundos"<<endl;
+	  count++;
 	}
+    }
 
-	return 0;
+  return 0;
 }

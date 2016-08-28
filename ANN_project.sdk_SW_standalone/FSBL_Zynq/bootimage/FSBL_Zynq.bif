@@ -1,0 +1,6 @@
+the_ROM_image:
+{
+	[bootloader]E:\TFM\ANN_project\ANN_project.sdk_SW_standalone\FSBL_Zynq\Release\FSBL_Zynq.elf
+	E:\TFM\ANN_project\ANN_project.sdk_SW_standalone\design_SW_standalone_wrapper_hw_platform_0\design_SW_standalone_wrapper.bit
+	E:\TFM\ANN_project\ANN_project.sdk_SW_standalone\ANN_Zynq_testApp\Release\release_ANN_Zynq_testApp.elf
+}

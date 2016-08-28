@@ -30,6 +30,11 @@ Debug*
 Release*
 bin/
 
+#Vivado
+*.cache
+*.runs
+*sim
+
 #hiden files
 .*
 
