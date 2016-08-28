@@ -1,18 +1,27 @@
-#Carlos III University of Madrid
-##Master in Electronics Systems
+#Sigmoid-Softmax Feed-forward Artificial Neural Network 
+#for heartbeats classification
 
-Master's Thesis Project
+##Carlos III University of Madrid.
+##
+##Master's Final Thesis: Heart-beats classifier based on ANN
+##
+##ANN Test App implemented in Hardware & Software for Standalone Zynq-7000 APSoC 
+##platforms
+##
+##Author: Pedro Marcos Solórzano
+##Tutor: Luis Mengibar Pozo
 
-Author: Pedro Marcos Solórzano
 
-Tutor: Luís Mengibar Pozo
+The goal of this project is to compare the performance of a Feed-forward ANN 
+implemented in Software and in Hardware taking advantage of the High Level 
+Synthesis (HLS). A Zybo board is used for this experiment.
 
----------------------------------------------------------------
+These two implementations to be compared are located in two sub-projects:
 
-Heatbeats Classifier Software based in Artificial Neuronal Network(ANN).
+- A standalone Software (SW): the Test App of ANN_Software project is
+adapted to be run on Bare-metal Zynq ARM platform. GPIO LEDs compatibility is 
+also added. 
 
-This software is developed to be run on a Zybo board (Zynq 7010 ARM CPU) in 
-order to check the proper working of the algorithm. The goal of the project is 
-to implement this algorithm on FPGA.
-
-This is a continuation of ANN_Microblaze_project.
+- A standalone Software with Hardware acceleration (SWandHW): A feed-forward ANN
+is implemented by HLS in Hardware and packaged in an IP. This IP is after used
+as co-processor to accelerate the previous Test App
