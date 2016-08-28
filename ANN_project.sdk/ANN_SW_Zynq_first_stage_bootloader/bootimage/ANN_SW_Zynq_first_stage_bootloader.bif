@@ -1,6 +1,0 @@
-the_ROM_image:
-{
-	[bootloader]E:\ANN_project\ANN_project.sdk\ANN_SW_Zynq_first_stage_bootloader\Release\ANN_SW_Zynq_first_stage_bootloader.elf
-	E:\ANN_project\ANN_project.sdk\ANN_SW_design_wrapper_hw_platform_0\ANN_SW_design_wrapper.bit
-	E:\ANN_project\ANN_project.sdk\ANN_SW_Heartbeats_Classifier_app\Release\release_ANN_SW_Heartbeats_Classifier_app.elf
-}

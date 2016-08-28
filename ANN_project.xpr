@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="10" Path="E:/ANN_project/ANN_project.xpr">
+<Project Version="7" Minor="10" Path="E:/TFM/ANN_project/ANN_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="00abf58956c345428172f5a2f88bcd35"/>
@@ -28,24 +28,24 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/bd/ANN_SW_design/ANN_SW_design.bd">
+      <File Path="$PSRCDIR/sources_1/bd/design_SW_standalone/design_SW_standalone.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_0/ANN_SW_design_processing_system7_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_processing_system7_0_axi_periph_0/ANN_SW_design_processing_system7_0_axi_periph_0.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_axi_gpio_0_0/ANN_SW_design_axi_gpio_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_rst_processing_system7_0_100M_0/ANN_SW_design_rst_processing_system7_0_100M_0.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ip/ANN_SW_design_auto_pc_0/ANN_SW_design_auto_pc_0.xci"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="ANN_SW_design_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hdl/ANN_SW_design.vhd"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design_bd.tcl"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hdl/ANN_SW_design.hwdef"/>
-        <CompFileExtendedInfo CompFileName="ANN_SW_design.bd" FileRelPathName="hw_handoff/ANN_SW_design.hwh"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_processing_system7_0_0/design_SW_standalone_processing_system7_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hdl/design_SW_standalone.vhd"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_processing_system7_0_axi_periph_0/design_SW_standalone_processing_system7_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_rst_processing_system7_0_100M_0/design_SW_standalone_rst_processing_system7_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_auto_pc_0/design_SW_standalone_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="design_SW_standalone_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hdl/design_SW_standalone.hwdef"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hw_handoff/design_SW_standalone.hwh"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="hw_handoff/design_SW_standalone_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="design_SW_standalone.bd" FileRelPathName="ip/design_SW_standalone_axi_gpio_0_0/design_SW_standalone_axi_gpio_0_0.xci"/>
       </File>
-      <File Path="$PSRCDIR/sources_1/bd/ANN_SW_design/hdl/ANN_SW_design_wrapper.vhd">
+      <File Path="$PSRCDIR/sources_1/bd/design_SW_standalone/hdl/design_SW_standalone_wrapper.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -53,7 +53,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="ANN_SW_design_wrapper"/>
+        <Option Name="TopModule" Val="design_SW_standalone_wrapper"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -64,11 +64,13 @@
       </Config>
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
+      <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="ANN_SW_design_wrapper"/>
+        <Option Name="TopModule" Val="design_SW_standalone_wrapper"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="SimMode" Val="post-implementation"/>
         <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
@@ -100,18 +102,14 @@
   <Runs Version="1" Minor="10">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z010clg400-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z010clg400-1" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
