@@ -166,9 +166,9 @@ CONFIG.USE_BOARD_FLOW {true} \
   set_property -dict [ list \
 CONFIG.PCW_APU_PERIPHERAL_FREQMHZ {650} \
 CONFIG.PCW_CRYSTAL_PERIPHERAL_FREQMHZ {50.000000} \
-CONFIG.PCW_ENET0_ENET0_IO {MIO 16 .. 27} \
-CONFIG.PCW_ENET0_GRP_MDIO_ENABLE {1} \
-CONFIG.PCW_ENET0_PERIPHERAL_ENABLE {1} \
+CONFIG.PCW_ENET0_ENET0_IO {<Select>} \
+CONFIG.PCW_ENET0_GRP_MDIO_ENABLE {0} \
+CONFIG.PCW_ENET0_PERIPHERAL_ENABLE {0} \
 CONFIG.PCW_ENET0_RESET_ENABLE {0} \
 CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} \
 CONFIG.PCW_GPIO_MIO_GPIO_ENABLE {1} \
@@ -292,7 +292,7 @@ CONFIG.PCW_UIPARAM_DDR_PARTNO {MT41K128M16 JT-125} \
 CONFIG.PCW_UIPARAM_DDR_TRAIN_DATA_EYE {1} \
 CONFIG.PCW_UIPARAM_DDR_TRAIN_READ_GATE {1} \
 CONFIG.PCW_UIPARAM_DDR_TRAIN_WRITE_LEVEL {1} \
-CONFIG.PCW_USB0_PERIPHERAL_ENABLE {1} \
+CONFIG.PCW_USB0_PERIPHERAL_ENABLE {0} \
 CONFIG.PCW_USB0_RESET_ENABLE {1} \
 CONFIG.PCW_USB0_RESET_IO {MIO 46} \
  ] $processing_system7_0
@@ -335,14 +335,14 @@ preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 110 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y 340 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 1 3 NJ 250 NJ 250 NJ
 preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 N
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 440
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 40 410
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 450 240 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 430
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 20 40 410
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 450 230 NJ
 preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 270 NJ 270 NJ
 preplace netloc axi_gpio_0_GPIO 1 3 1 NJ
 preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 420
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 30 430 230 NJ
-levelinfo -pg 1 0 220 580 820 940 -top 0 -bot 480
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 30 470 440 240 NJ
+levelinfo -pg 1 0 220 600 860 980 -top 0 -bot 480
 ",
 }
 

@@ -5,13 +5,13 @@
  * Master's Final Thesis: Heart-beats classifier based on ANN (Artificial Neural
  * Network).
  *
- * Software implementation in C++ for GNU/Linux x86 & Zynq's ARM platforms
+ * Software implementation in C++ for Standalone Zynq-7000 ARM platform
  *
  * Author: Pedro Marcos Solórzano
  * Tutor: Luis Mengibar Pozo
  *
  *
- * Main code to train, validate and test a feed-forward ANN
+ * Main code to train, validate and test some feed-fordware ANN examples.
  *
  * Source code
  *
@@ -21,17 +21,18 @@
 #include "main.h"
 
 /*
- * Undefine str to avoid overloading with sstream function
+ * Undefine "str" macro to avoid overloading the String-stream's method.
  */
 #undef str
 
 int main(void)
 {
   int i,j, k, numLayer, *layerSize, numRowTrain, numRowVal, numRowTest, numRow,
-  ite, maxIte, minIte, numOut, numIn, *goodOut, *badOut, goodOutTotal, status;
+  ite, maxIte, minIte, numOut, numIn, *goodOut, *badOut, goodOutTotal, status,
+  netOut;
   UINT fSize, fBRead;
   double **dIn, **dTarget, mcee, minMcee, lastMcee, thMcee, *maxIn, *minIn;
-  bool bad, *netOut;
+  bool bad;
   char *fBuffer;
   stringstream sBuffer;
   FIL fAnn, fTarget, fIn, fTrain;
@@ -41,7 +42,10 @@ int main(void)
   XGpio leds;
 
   /*
-   * Initialize leds
+   * Initialize GPIO's LEDs
+   *
+   * The application will show different light signals in function of the
+   * running state
    */
   status = XGpio_Initialize(&leds, XPAR_AXI_GPIO_0_DEVICE_ID);
   if (status != XST_SUCCESS)
@@ -52,14 +56,14 @@ int main(void)
   XGpio_SetDataDirection(&leds, 1, 0x0);
 
   /*
-   * Introduction
+   * Print an introduction
    */
   cout<<endl<<endl<<endl
       <<"ANN test Application"<<endl
       <<"####################"<<endl<<endl;
 
   /*
-   * Create File System and open configuration and data files
+   * Mount SD and create File System to open configuration and data files
    */
   cout<<"Creating File System and opening files... "<<flush;
 
@@ -108,6 +112,7 @@ int main(void)
 
   cout<<"DONE!"<<endl;
 
+
   /*
    * ANN configuration
    *
@@ -135,7 +140,7 @@ int main(void)
   try
   {
       /*
-       * Storage data loaded on a string-stream
+       * Storage loaded data on a string-stream
        */
       sBuffer<<fBuffer;
 
@@ -159,11 +164,6 @@ int main(void)
        */
       numOut = layerSize[numLayer-1];
       numIn = layerSize[0];
-
-      /*
-       * Allocate Binary Network Output Array and initialize it to 0
-       */
-      netOut = new bool[numOut]();
 
       /*
        * Allocate and initialize to 0 statistical variables of ANN test
@@ -569,7 +569,7 @@ int main(void)
       lastMcee=mcee;
 
       /*
-       * Control the alternative LEDs to indicate the trainer is working
+       * Control the LEDs to indicate the trainer is working
        */
       if(ite%2)
 	{
@@ -581,6 +581,7 @@ int main(void)
 	}
     }
   XGpio_DiscreteWrite(&leds, 1, 0b0000);
+
   /*
    * last trainer information to print
    */
@@ -620,22 +621,22 @@ int main(void)
       trainIns.feedforward(dIn[i]);
 
       /*
-       * Check the type of output and correctness
-       */
-      trainIns.getNetOut(netOut);
+            * Check whether the classification has been correctly done
+            */
+           netOut = trainIns.getNetOut();
 
-      bad=false;
-      for(j=0; j<numOut; ++j)
-	{
-	  if(netOut[j]!=dTarget[i][j])
-	    {
-	      bad=true;
-	    }
-	  if(dTarget[i][j]==1)
-	    {
-	      k=j;
-	    }
-	}
+           bad=false;
+           for(j=0; j<numOut; ++j)
+     	{
+     	  if(dTarget[i][j])
+     	    {
+     	      k=j;
+     	      if(netOut!=j)
+     		{
+     		  bad=true;
+     		}
+     	    }
+     	}
 
       /*
        * Count bad and good results.
@@ -687,11 +688,11 @@ int main(void)
   /*
    * END
    *
-   * Free all dynamic memory (the object will be destroyed automatically)
+   * Free all dynamic memory (the object will be destroyed automatically) and
+   * Turn on all LEDs
    */
   cout<<"Ending program..."<<flush;
 
-  delete[] netOut;
   delete[] goodOut;
   delete[] badOut;
   for(i=0; i<numRow; ++i)

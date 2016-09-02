@@ -21,106 +21,188 @@
 
 #include "ANN.h"
 
-/********
- * hay que ponerles protocolos a los puertos
- */
 
-void feedforward(const int numLayer,
-		 const int layerSize[MAX_NUM_LAYER],
-		 const double WandB[MAX_NUM_LAYER][MAX_SIZE_LAYER][MAX_SIZE_LAYER+1],
-		 double uOut[MAX_NUM_LAYER][MAX_SIZE_LAYER],
-		 const double netIn[MAX_SIZE_LAYER],
-		 bool netOut[MAX_SIZE_LAYER])
+/*
+ * IP top function to be synthesized
+ *
+ * It has 6 ports:
+ * P_mode:	input port to set the operating mode
+ * P_config:	input port to set the number of layers and their sizes
+ * P_WandB:	input port to set weights and bias of each neuron
+ * P_uOut:	output port to get each neuron output (Useful for training)
+ * P_netIn:	input data to be processed
+ * P_netOut:	output class.
+ */
+fword_t  ANN(const iword_t P_mode,
+	     const iword_t P_index1,
+	     const iword_t P_index2,
+	     const iword_t P_intIn_index3,
+	     const fword_t P_floatIn)
 {
-  double sum, sumsoft;
+  /*
+   * Stored IP data
+   *
+   * ST_numLayer:	Number of Layers. It includes input and output layers
+   * ST_layerSize:	Layers Sizes Array. Number of neurons in each layer.
+   * ST_WandB:		Weights & Bias Matrix.
+   */
+  static iword_t ST_numLayer;
+  static iword_t ST_layerSize[MAX_NUM_LAYER];
+  static fword_t ST_WandB[MAX_NUM_LAYER][MAX_SIZE_LAYER][MAX_SIZE_LAYER+1];
+  static fword_t ST_uOut[MAX_NUM_LAYER][MAX_SIZE_LAYER];
+  /* Temporal IP data
+   * _uOut:		Outputs Matrix. Output values of each neuron
+   * _netOut:		Final output class
+   */
+
+  /*
+   * Other variables
+   */
+  fword_t sum, sumsoft;
   int i, j, k, max;
 
   /*
-   * 1º step: Assign content to input layer
+   * MODE 1: ANN configuration
+   *
+   * number of layers configuration
    */
-  for(i=0; i<layerSize[0]; ++i)
+  if(P_mode==1)
     {
-      uOut[0][i]=netIn[i];
+      ST_numLayer = P_intIn_index3;
+      return 0;
     }
 
   /*
-   * 2º step: Forward-propagation through hidden layers. Get the outputs of each
-   * neuron in the hidden layers applying SIGMOID activation function
+   * MODE 2: ANN configuration
+   *
+   * sizes of layers configuration
    */
-  for(i=1; i<numLayer; ++i)
+  else if (P_mode==2)
     {
-      for(j=0; j<layerSize[i]; ++j)
+      ST_layerSize[P_index1] = P_intIn_index3;
+      return 0;
+    }
+
+  /*
+   * MODE 3: Weight & Bias update
+   *
+   */
+  else if(P_mode==3)
+    {
+      ST_WandB[P_index1][P_index2][P_intIn_index3]=P_floatIn;
+      return 0;
+    }
+
+  /*
+   * Mode 4: Copy input data
+   *
+   * 1º Step for feedforward process
+   */
+  else if(P_mode==4)
+    {
+      ST_uOut[0][P_index1]=P_floatIn;
+      return 0;
+    }
+
+  /*
+   * MODE 5 : Feedforward
+
+   */
+  else if(P_mode==5)
+    {
+
+      /*
+       * 2º step: Forward-propagation through hidden layers. Get the outputs of each
+       * neuron in the hidden layers applying SIGMOID activation function
+       */
+      for(i=1;i<ST_numLayer;++i)
+	{
+	  for(j=0; j<ST_layerSize[i]; ++j)
+	    {
+	      /*
+	       * Sum all the neuron inputs weighted.
+	       */
+	      sum=0.0;
+	      for(k=0;k<ST_layerSize[i-1];++k)
+		{
+		  sum+=ST_uOut[i-1][k]*ST_WandB[i][j][k];
+		}
+	      /*
+	       * Apply bias
+	       */
+	      sum+=ST_WandB[i][j][ST_layerSize[i-1]];
+	      /*
+	       * Get neuron output with SIGMOID activation function
+	       */
+	      ST_uOut[i][j]=1/(1+exp(-sum));
+	    }
+	}
+
+      /*
+       * 3º step: Calculate outputs. Get the outputs of each neuron in the last
+       * layer applying SOFTMAX activation function.
+       */
+      sumsoft=0.0;
+      for(i=0; i<ST_layerSize[ST_numLayer-1]; ++i)
 	{
 	  /*
 	   * Sum all the neuron inputs weighted.
 	   */
 	  sum=0.0;
-	  for(k=0; k<layerSize[i-1]; ++k)
+	  for(j=0; j<ST_layerSize[ST_numLayer-2]; ++j)
 	    {
-	      sum+=uOut[i-1][k]*WandB[i][j][k];
+	      sum+=ST_uOut[ST_numLayer-2][j] * ST_WandB[ST_numLayer-1][i][j];
 	    }
 	  /*
 	   * Apply bias
 	   */
-	  sum+=WandB[i][j][layerSize[i-1]];
+	  sum+=ST_WandB[ST_numLayer-1][i][ST_layerSize[ST_numLayer-2]];
 	  /*
-	   * Get neuron output with SIGMOID activation function
+	   * SOFTMAX activation function 1º step
 	   */
-	  uOut[i][j]=1/(1+exp(-sum));
+	  ST_uOut[ST_numLayer-1][i] = exp(sum);
+	  sumsoft+=ST_uOut[ST_numLayer-1][i];
 	}
-    }
-
-  /*
-   * 3º step: Calculate outputs. Get the outputs of each neuron in the last
-   * layer applying SOFTMAX activation function.
-   */
-  sumsoft=0.0;
-  for(i=0; i<layerSize[numLayer-1]; ++i)
-    {
       /*
-       * Sum all the neuron inputs weighted.
+       * SOFTMAX activation function 2º step. Get neurons outputs.
        */
-      sum=0.0;
-      for(j=0; j<layerSize[numLayer-2]; ++j)
+      for(i=0; i<ST_layerSize[ST_numLayer-1]; ++i)
 	{
-	  sum+=uOut[numLayer-2][j] * WandB[numLayer-1][i][j];
+	  ST_uOut[ST_numLayer-1][i]/=sumsoft;
 	}
-      /*
-       * Apply bias
-       */
-      sum+=WandB[numLayer-1][i][layerSize[numLayer-2]];
-      /*
-       * SOFTMAX activation function 1º step
-       */
-      uOut[numLayer-1][i] = exp(sum);
-      sumsoft+=uOut[numLayer-1][i];
-    }
-  /*
-   * SOFTMAX activation function 2º step. Get neurons outputs.
-   */
-  for(i=0; i<layerSize[numLayer-1]; ++i)
-    {
-      uOut[numLayer-1][i]/=sumsoft;
+      return 0;
     }
 
   /*
-   * 4º step: get Binary Network Outputs Array applying Winer-Take-All rule.
-   * The highest last layer output become 1.
+   * Mode 6: Get neurons output for training
    *
-   * Note these outputs are NOT used for training.
+   * 4º Step in feedforward process
    */
-  max=0;
-  for(i=1; i<layerSize[numLayer-1]; ++i)
+  else if(P_mode==6)
     {
-      if(uOut[numLayer-1][i] > uOut[numLayer-1][max])
-	{
-	  netOut[max]=false;
-	  max=i;
-	}
-      else
-	{
-	  netOut[i]=false;
-	}
+      return ST_uOut[P_index1][P_index2];
     }
-  netOut[max]=true;
+
+  /*
+   * Mode 7: choose the final class applying Winer-Take-All rule.
+   * The highest last layer output will be the resulting class.
+   *
+   * 4º Step in feedforward process
+   */
+
+  else if(P_mode==7)
+    {
+      max=0;
+      for(i=1; i<ST_layerSize[ST_numLayer-1]; ++i)
+	{
+	  if(ST_uOut[ST_numLayer-1][i] > ST_uOut[ST_numLayer-1][max])
+	    {
+	      max=i;
+	    }
+	}
+      return max;
+
+    }
+
+  return -1;
 }

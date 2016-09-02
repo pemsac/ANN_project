@@ -33,10 +33,10 @@
 /*
  * Files' directories
  */
-#define TARGET_FILE_DIR		"../../../../example_2/target.dat"
-#define ANN_FILE_DIR		"../../../../example_2/ANN.ann"
-#define TRAIN_FILE_DIR		"../../../../example_2/Training.ann"
-#define IN_FILE_DIR		"../../../../example_2/input.dat"
+#define TARGET_FILE_DIR		"../../../../example_0/target.dat"
+#define ANN_FILE_DIR		"../../../../example_0/ANN.ann"
+#define TRAIN_FILE_DIR		"../../../../example_0/Training.ann"
+#define IN_FILE_DIR		"../../../../example_0/input.dat"
 
 /*
  * Input codify parameters
