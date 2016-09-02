@@ -77,39 +77,6 @@
 
 /******************************************************************/
 
-/* Definitions for driver EMACPS */
-#define XPAR_XEMACPS_NUM_INSTANCES 1
-
-/* Definitions for peripheral PS7_ETHERNET_0 */
-#define XPAR_PS7_ETHERNET_0_DEVICE_ID 0
-#define XPAR_PS7_ETHERNET_0_BASEADDR 0xE000B000
-#define XPAR_PS7_ETHERNET_0_HIGHADDR 0xE000BFFF
-#define XPAR_PS7_ETHERNET_0_ENET_CLK_FREQ_HZ 125000000
-#define XPAR_PS7_ETHERNET_0_ENET_SLCR_1000MBPS_DIV0 8
-#define XPAR_PS7_ETHERNET_0_ENET_SLCR_1000MBPS_DIV1 1
-#define XPAR_PS7_ETHERNET_0_ENET_SLCR_100MBPS_DIV0 8
-#define XPAR_PS7_ETHERNET_0_ENET_SLCR_100MBPS_DIV1 5
-#define XPAR_PS7_ETHERNET_0_ENET_SLCR_10MBPS_DIV0 8
-#define XPAR_PS7_ETHERNET_0_ENET_SLCR_10MBPS_DIV1 50
-
-
-/******************************************************************/
-
-/* Canonical definitions for peripheral PS7_ETHERNET_0 */
-#define XPAR_XEMACPS_0_DEVICE_ID XPAR_PS7_ETHERNET_0_DEVICE_ID
-#define XPAR_XEMACPS_0_BASEADDR 0xE000B000
-#define XPAR_XEMACPS_0_HIGHADDR 0xE000BFFF
-#define XPAR_XEMACPS_0_ENET_CLK_FREQ_HZ 125000000
-#define XPAR_XEMACPS_0_ENET_SLCR_1000Mbps_DIV0 8
-#define XPAR_XEMACPS_0_ENET_SLCR_1000Mbps_DIV1 1
-#define XPAR_XEMACPS_0_ENET_SLCR_100Mbps_DIV0 8
-#define XPAR_XEMACPS_0_ENET_SLCR_100Mbps_DIV1 5
-#define XPAR_XEMACPS_0_ENET_SLCR_10Mbps_DIV0 8
-#define XPAR_XEMACPS_0_ENET_SLCR_10Mbps_DIV1 50
-
-
-/******************************************************************/
-
 
 /* Definitions for peripheral PS7_AFI_0 */
 #define XPAR_PS7_AFI_0_S_AXI_BASEADDR 0xF8008000
@@ -412,25 +379,6 @@
 #define XPAR_XUARTPS_0_HIGHADDR 0xE0001FFF
 #define XPAR_XUARTPS_0_UART_CLK_FREQ_HZ 100000000
 #define XPAR_XUARTPS_0_HAS_MODEM 0
-
-
-/******************************************************************/
-
-/* Definitions for driver USBPS */
-#define XPAR_XUSBPS_NUM_INSTANCES 1
-
-/* Definitions for peripheral PS7_USB_0 */
-#define XPAR_PS7_USB_0_DEVICE_ID 0
-#define XPAR_PS7_USB_0_BASEADDR 0xE0002000
-#define XPAR_PS7_USB_0_HIGHADDR 0xE0002FFF
-
-
-/******************************************************************/
-
-/* Canonical definitions for peripheral PS7_USB_0 */
-#define XPAR_XUSBPS_0_DEVICE_ID XPAR_PS7_USB_0_DEVICE_ID
-#define XPAR_XUSBPS_0_BASEADDR 0xE0002000
-#define XPAR_XUSBPS_0_HIGHADDR 0xE0002FFF
 
 
 /******************************************************************/

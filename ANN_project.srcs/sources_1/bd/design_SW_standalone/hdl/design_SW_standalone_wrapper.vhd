@@ -1,7 +1,7 @@
 --Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2015.4.2 (win64) Build 1494164 Fri Feb 26 04:18:56 MST 2016
---Date        : Sat Aug 27 23:49:12 2016
+--Date        : Wed Aug 31 22:23:41 2016
 --Host        : DESKTOP-I329812 running 64-bit major release  (build 9200)
 --Command     : generate_target design_SW_standalone_wrapper.bd
 --Design      : design_SW_standalone_wrapper

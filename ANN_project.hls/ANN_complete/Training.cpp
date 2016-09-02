@@ -24,27 +24,59 @@
 
 
 
-Training::Training(int numLayer, int *layerSize)
+Training::Training(iword_t numLayer, iword_t *layerSize)
 {
   int i, j, k;
+
 
   /*.
    * Number of Layers data copy
    */
   _numLayer = numLayer;
+  ANN(1,0,0,numLayer,0);
 
   /*
    * Layers Sizes Array memory allocation and data copy
    */
+  _layerSize=new iword_t[numLayer];
+
   for(i=0; i<numLayer; ++i)
     {
       _layerSize[i]=layerSize[i];
+      ANN(2,i,0,layerSize[i],0);
     }
 
   /*
-   * Initialize Random Weights & Bias Matrix with random values between
-   * -0.5 and 0.5
+   * Outputs Matrix memory allocation and initialization to 0
    */
+  _uOut=new fword_t*[numLayer]();
+
+  for(i=0; i<numLayer; ++i)
+    {
+      _uOut[i]=new fword_t[layerSize[i]]();
+    }
+
+  /*
+   * Weights & Bias Matrix memory allocation and initialize them with random
+   * values between -0.5 and 0.5
+   *
+   * Take into account the first layer's neurons (input) doesn't have weights.
+   * Note the neurons have a weight for each previous neuron connected plus its
+   * bias' weight.
+   */
+  _WandB=new fword_t**[numLayer];
+
+  for(i=1; i<numLayer; ++i)
+    {
+      _WandB[i]=new fword_t*[layerSize[i]];
+    }
+  for(i=1; i<numLayer; ++i)
+    {
+      for(j=0; j<layerSize[i]; ++j)
+	{
+	  _WandB[i][j]=new fword_t[layerSize[i-1]+1];
+	}
+    }
   srand (time(NULL));
   for(i=1; i<numLayer; ++i)
     {
@@ -52,19 +84,19 @@ Training::Training(int numLayer, int *layerSize)
 	{
 	  for(k=0; k<layerSize[i-1]+1; ++k)
 	    {
-	      _WandB[i][j][k]=(double)(rand())/(RAND_MAX) - 0.5;
+	      _WandB[i][j][k]=(fword_t)(rand())/(RAND_MAX) - 0.5;
+	      ANN(3,i,j,k,_WandB[i][j][k]);
 	    }
 	}
     }
 
   /*
-   *
    * Neuron Gradient Matrix memory allocation
    */
-  _grad=new double*[numLayer];
+  _grad=new fword_t*[numLayer];
   for(i=1; i<numLayer; ++i)
     {
-      _grad[i]=new double[layerSize[i]];
+      _grad[i]=new fword_t[layerSize[i]];
     }
 
   /*
@@ -75,16 +107,16 @@ Training::Training(int numLayer, int *layerSize)
    * Note the neurons have a weight for each previous neuron connected plus its
    * bias' weight.
    */
-  _delta = new double**[numLayer]();
+  _delta = new fword_t**[numLayer]();
   for(i=1; i<numLayer; ++i)
     {
-      _delta[i]=new double*[layerSize[i]]();
+      _delta[i]=new fword_t*[layerSize[i]]();
     }
   for(i=1; i<numLayer; ++i)
     {
       for(j=0; j<layerSize[i]; ++j)
 	{
-	  _delta[i][j]=new double[layerSize[i-1]+1]();
+	  _delta[i][j]=new fword_t[layerSize[i-1]+1]();
 	}
     }
 
@@ -93,7 +125,6 @@ Training::Training(int numLayer, int *layerSize)
    */
   _learnRate=START_LEARN_RATE;
   _momentum=MOMENTUM;
-
 }
 
 
@@ -126,24 +157,69 @@ Training::~Training ()
       delete[] _grad[i];
     }
   delete[] _grad;
+
+  /*
+   * Weights & Bias Matrix memory freeing
+   */
+  for(i=1; i<_numLayer; ++i)
+    {
+      for(j=0; j<_layerSize[i]; ++j)
+	{
+	  delete[] _WandB[i][j];
+	}
+    }
+  for(i=1; i<_numLayer; ++i)
+    {
+      delete[] _WandB[i];
+    }
+  delete[] _WandB;
+
+  /*
+   * Outputs Matrix memory freeing
+   */
+  for(i=0; i<_numLayer; ++i)
+    {
+      delete[] _uOut[i];
+    }
+  delete[] _uOut;
+
+  /*
+   * Layers Sizes Array memory freeing
+   */
+  delete[] _layerSize;
 }
 
 
 
-void Training::backpropagation(double *in, double *target)
+void Training::backpropagation(fword_t *in, fword_t *target)
 {
-  double sum, netIn[MAX_NUM_LAYER];
   int i, j, k;
-  bool netOut[MAX_NUM_LAYER];
+  fword_t sum;
 
   /*
-   * 1º step: Update all neurons outputs for an input applying feed-forward
+   * 1º step: Apply input to the ANN
    */
   for(i=0; i<_layerSize[0]; ++i)
     {
-      netIn[i] = in[i];
+      ANN(4,i,0,0,in[i]);
     }
-  feedforward(_numLayer, _layerSize, _WandB, _uOut, netIn, netOut);
+  /*
+   * Feed-forward
+   */
+  ANN(5,0,0,0,0);
+
+  /*
+   * Get each neuron output
+   */
+
+  for(i=0; i<_numLayer; ++i)
+    {
+      for(j=0; j<_layerSize[i]; ++j)
+	{
+	  _uOut[i][j]=ANN(6,i,j,0,0);
+	}
+    }
+
 
   /*
    * 2º step: Calculate error gradient of each neuron applying back-propagation
@@ -194,7 +270,8 @@ void Training::backpropagation(double *in, double *target)
     }
 
   /*
-   * 4º and 5 step: Calculate new deltas from gradients and update weights
+   * 4º and 5 step: Calculate new deltas from gradients and update weights on
+   * software and hardware
    */
   for(i=1; i<_numLayer; ++i)
     {
@@ -215,14 +292,46 @@ void Training::backpropagation(double *in, double *target)
 	  _WandB[i][j][_layerSize[i-1]]+=_delta[i][j][_layerSize[i-1]];
 	}
     }
+  /*
+   * Set the new weights and bias to the IP (IP core mode 3)
+   */
+  for(i=1; i<_numLayer; ++i)
+    {
+      for(j=0; j<_layerSize[i]; ++j)
+	{
+	  for(k=0; k<_layerSize[i-1]+1; ++k)
+	    {
+	      ANN(3,i,j,k,_WandB[i][j][k]);
+	    }
+	}
+    }
 }
 
 
 
-double Training::CEE(double *target)
+fword_t Training::CEE(fword_t *in, fword_t *target)
 {
-  double cee = 0.0;
-  int i;
+  int i, j;
+  fword_t cee = 0.0;
+
+  /*
+   * Update new neurons outputs for the current input. (IP core mode 4)
+   */
+  for(i=0; i<_layerSize[0]; ++i)
+    {
+      ANN(4,i,0,0,in[i]);
+    }
+
+  ANN(5,0,0,0,0);
+
+  for(i=0; i<_numLayer; ++i)
+    {
+      for(j=0; j<_layerSize[i]; ++j)
+	{
+
+	  _uOut[i][j]=ANN(6,i,j,0,0);
+	}
+    }
 
   /*
    * Calculate Cross Entropy Error (CEE) of the current network's outputs and
@@ -233,12 +342,12 @@ double Training::CEE(double *target)
       cee+=log(_uOut[_numLayer-1][i])*target[i]*(-1);
     }
 
-  return cee/_layerSize[_numLayer-1];
+  return cee/(int)_layerSize[_numLayer-1];
 }
 
 
 
-void Training::updateLRandM(double currMCEE, double lastMCEE)
+void Training::updateLRandM(fword_t currMCEE, fword_t lastMCEE)
 {
   /*
    * If the Mean Cross Entropy Error of the iteration has decreased, increment
@@ -264,23 +373,5 @@ void Training::updateLRandM(double currMCEE, double lastMCEE)
 	  _learnRate*=DECRE_LEARN_RATE;
 	}
       _momentum=0;
-    }
-}
-
-void Training::test_feedforward(double *in, bool *out)
-{
-  int i;
-  bool netOut[MAX_NUM_LAYER];
-  double netIn[MAX_NUM_LAYER];
-
-  for(i=0; i<_layerSize[0]; ++i)
-    {
-      netIn[i] = in[i];
-    }
-  feedforward(_numLayer, _layerSize, _WandB, _uOut, netIn, netOut);
-
-  for(i=0; i<_layerSize[_numLayer-1]; ++i)
-    {
-      out[i] = netOut[i];
     }
 }

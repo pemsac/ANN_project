@@ -24,10 +24,11 @@
 
 int main(void)
 {
-  int i,j, k, numLayer, *layerSize, numRowTrain, numRowVal, numRowTest, numRow,
-  ite, maxIte, minIte, numOut, numIn, *goodOut, *badOut, goodOutTotal;
-  double **dIn, **dTarget, mcee, minMcee, lastMcee, thMcee, *maxIn, *minIn;
-  bool bad, *netOut;
+  int i,j, k, numRowTrain, numRowVal, numRowTest, numRow, ite, maxIte, minIte,
+  numOut, numIn, *goodOut, *badOut, goodOutTotal;
+  iword_t numLayer, *layerSize, netOut;
+  fword_t **dIn, **dTarget, mcee, minMcee, lastMcee, thMcee, *maxIn, *minIn;
+  bool bad;
   fstream fAnn, fTarget, fIn, fTrain;
 
 
@@ -72,7 +73,7 @@ int main(void)
       /*
        * Allocate Layers Sizes Array and load them
        */
-      layerSize = new int[numLayer];
+      layerSize = new iword_t[numLayer];
 
       for (i=0; i<numLayer; ++i)
 	{
@@ -86,11 +87,6 @@ int main(void)
       numIn = layerSize[0];
 
       /*
-       * Allocate Binary Network Output Array and initialize it to 0
-       */
-      netOut = new bool[numOut]();
-
-      /*
        * Allocate and initialize to 0 statistical variables of ANN test
        */
       goodOut = new int[numOut]();
@@ -99,8 +95,8 @@ int main(void)
       /*
        * Allocate and initialize input coding variables
        */
-      maxIn = new double[numIn];
-      minIn = new double[numIn];
+      maxIn = new fword_t[numIn];
+      minIn = new fword_t[numIn];
       for(i=0; i<numIn; ++i)
 	{
 	  maxIn[i] = CODEC_MIN;
@@ -172,10 +168,10 @@ int main(void)
       /*
        * Allocate input buffer
        */
-      dIn = new double*[numRow];
+      dIn = new fword_t*[numRow];
       for(i=0; i<numRow; ++i)
 	{
-	  dIn[i] = new double[numIn];
+	  dIn[i] = new fword_t[numIn];
 	}
 
       /*
@@ -223,10 +219,10 @@ int main(void)
       /*
        * Allocate target buffer
        */
-      dTarget = new double*[numRow];
+      dTarget = new fword_t*[numRow];
       for(i=0; i<numRow; ++i)
 	{
-	  dTarget[i] = new double[numOut];
+	  dTarget[i] = new fword_t[numOut];
 	}
 
       /*
@@ -266,12 +262,12 @@ int main(void)
       /*
        * Calculate Slope
        */
-      double a = (CODEC_MAX-CODEC_MIN)/(maxIn[i]-minIn[i]);
+      fword_t a = (CODEC_MAX-CODEC_MIN)/(maxIn[i]-minIn[i]);
 
       /*
        * Calculate y-intercept
        */
-      double b = CODEC_MIN - a*minIn[i];
+      fword_t b = CODEC_MIN - a*minIn[i];
 
       /*
        * Apply the Straight Line equation to this type of input data
@@ -341,8 +337,7 @@ int main(void)
       mcee=0;
       for(i=numRowTrain; i<numRowTrain+numRowVal; ++i)
 	{
-	  trainIns.test_feedforward(dIn[i], netOut);
-	  mcee+=trainIns.CEE(dTarget[i]);
+	  mcee+=trainIns.CEE(dIn[i], dTarget[i]);
 	}
       mcee /= numRowVal;
 
@@ -405,20 +400,35 @@ int main(void)
       ++ite;
 
       /*
-       * Feed-forward sample
+       * Add inputs to ANN
        */
-      trainIns.test_feedforward(dIn[i], netOut);
+      for(j=0; j<numIn; ++j)
+	{
+	  ANN(4,j,0,0,dIn[i][j]);
+	}
 
+      /*
+       * Feedforward
+       */
+      ANN(5,0,0,0,0);
+
+      /*
+       * Get Output
+       */
+      netOut = (int)ANN(7,0,0,0,0);
+      /*
+       * Check whether the classification has been correctly done
+       */
       bad=false;
       for(j=0; j<numOut; ++j)
 	{
-	  if(netOut[j]!=dTarget[i][j])
-	    {
-	      bad=true;
-	    }
-	  if(dTarget[i][j]==1)
+	  if(dTarget[i][j])
 	    {
 	      k=j;
+	      if(netOut!=j)
+		{
+		  bad=true;
+		}
 	    }
 	}
 
@@ -448,6 +458,8 @@ int main(void)
   printf("Classification accuracy = %i\r\n", goodOutTotal*100/numRowTest);
   printf("\r\n");
 
+
+
   /*
    * END
    *
@@ -455,7 +467,6 @@ int main(void)
    */
   printf("Ending program...");
   delete[] layerSize;
-  delete[] netOut;
   delete[] goodOut;
   delete[] badOut;
   for(i=0; i<numRow; ++i)

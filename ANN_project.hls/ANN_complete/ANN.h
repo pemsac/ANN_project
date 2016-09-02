@@ -25,24 +25,49 @@
 #ifndef ANN_H_
 #define ANN_H_
 
+/*
+ * Max neural network sizes
+ */
 #define MAX_NUM_LAYER	4
-#define MAX_SIZE_LAYER	35
+#define MAX_SIZE_LAYER	40
 
 /*
  * Includes
  */
 #include <cmath>
-
-
+#include "ap_int.h"
 
 /*
+ * data types
+ */
+typedef float		fword_t;
+typedef int		iword_t;
+
+/*
+ * stream port type
+ */
+//struct fword_p
+//{
+//  fword_t 	data;
+//  ap_uint<4>	keep;
+//  ap_uint<1>	last;
+//};
+//
+//struct byte_p
+//{
+//  iword_t	data;
+//  ap_uint<1>	keep;
+//  ap_uint<1>	last;
+//};
+
+/*
+ * IP top function declaration
  *
  */
-void feedforward(const int numLayer,
-		 const int layerSize[MAX_NUM_LAYER],
-		 const double WandB[MAX_NUM_LAYER][MAX_SIZE_LAYER][MAX_SIZE_LAYER+1],
-		 double uOut[MAX_NUM_LAYER][MAX_SIZE_LAYER],
-		 const double netIn[MAX_SIZE_LAYER],
-		 bool netOut[MAX_SIZE_LAYER]);
+fword_t  ANN(const iword_t P_mode,
+	     const iword_t P_index1,
+	     const iword_t P_index2,
+	     const iword_t P_intIn_index3,
+	     const fword_t P_floatIn);
 
 #endif

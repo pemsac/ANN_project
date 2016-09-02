@@ -46,45 +46,47 @@
 #include "ANN.h"
 #include <stdlib.h>
 #include <time.h>
+#include <stddef.h>
 
 using namespace std;
 
 /*
- * Back-propagation training class derived from ANN class
+ * Back-propagation training class
  */
 class Training
 {
 private:
   /*
-   * Private variables:
+   * Private variables (for training tasks):
    * _learnRate:	Learning Rate.
    * _momentum:		Momentum.
    * _delta:		Weights & Bias Variations (deltas) Matrix
    * _grad:		Neuron Gradient Matrix
-   * _randWandB:	Random Weights & Bias Matrix to initialize a new ANN base
    */
-  double _learnRate, _momentum, ***_delta, **_grad,
+  fword_t _learnRate, _momentum, ***_delta, **_grad,
 
   /*
-   * ann
+   * Private variables (copy of the ANN base):
+   * _numLayer:		Number of Layers. It includes input and output layers
+   * _layerSize:	Layers Sizes Array. Number of neurons in each layer.
+   * _WandB:		Weights & Bias Matrix.
+   * _uOut:		Outputs Matrix. Output values of each neuron
    */
-  _WandB[MAX_NUM_LAYER][MAX_SIZE_LAYER][MAX_SIZE_LAYER+1],
-  _uOut[MAX_NUM_LAYER][MAX_SIZE_LAYER];
-
-  int _numLayer, _layerSize[MAX_NUM_LAYER];
+  ***_WandB, **_uOut;
+  iword_t _numLayer, *_layerSize;
 
 
 public:
 
   /*
-   * Constructor method for new ANN
+   * Constructor method for new ANN (on Hardware)
    *
-   * It initializes all private variables and ANN base object with random
-   * weights and the following parameters:
+   * It initializes all private variables and configure a new ANN IP core with
+   * random weights and the following parameters:
    * - number of layers, including input & output layers. (numLayer)
    * - number of neurons in each layer (layerSize)
    */
-  Training(int numLayer, int *layerSize);
+  Training(iword_t numLayer, iword_t *layerSize);
 
   /*
    * Virtual destructor to free all dynamic memory (including ANN base)
@@ -103,20 +105,19 @@ public:
    *
    * Check documentation for more information
    */
-  void backpropagation(double *in,double *target);
+  void backpropagation(fword_t *in,fword_t *target);
 
   /*
    * Method to get Cross Entropy Error for current network's outputs.
    */
-  double CEE(double *target);
+  fword_t CEE(fword_t *in, fword_t *target);
 
   /*
    * Update Learning Rate and Momentum parameters according to the Mean Cross
    * Entropy Error (MCEE) of the current and last iterations
    */
-  void updateLRandM(double currMCEE, double lastMCEE);
+  void updateLRandM(fword_t currMCEE, fword_t lastMCEE);
 
-  void test_feedforward(double *in, bool *out);
 };
 
 #endif
